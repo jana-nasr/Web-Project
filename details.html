@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details Page</title>
+</head>
+<body>
+
+  <nav>
+        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
+        <a href="profile.html">Profile</a>&nbsp&nbsp
+        <a href="Home.html">Home</a>&nbsp&nbsp
+        <a href="About Us.html">About Us</a>&nbsp&nbsp
+        <a href="servicess.html">Books</a>&nbsp&nbsp
+        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
+        <a href="details.html">Book Details</a>&nbsp&nbsp
+        <a href="login.html">Login</a>
+    </nav>
+    <hr>
+
+
+  
+  <main>
+    <section>
+      <header>
+        <h2>Enter Book Details</h2>
+      </header>
+
+      <article>
+        <form action="#" method="get">
+          <fieldset>
+            <legend>Selected Book Information</legend>
+
+            <p>
+              <label for="book_id">Book ID:</label><br>
+              <input
+                type="text"
+                id="book_id"
+                name="book_id"
+                required
+                minlength="1"
+                maxlength="20"
+                placeholder="Enter book ID">
+            </p>
+
+            <p>
+              <label for="book_name">Book Name:</label><br>
+              <input
+                type="text"
+                id="book_name"
+                name="book_name"
+                required
+                minlength="2"
+                maxlength="100"
+                placeholder="Enter book name">
+            </p>
+
+            <p>
+              <label for="author">Author:</label><br>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                required
+                minlength="2"
+                maxlength="60"
+                placeholder="Enter author name">
+            </p>
+
+            <p>
+              <label for="category">Category:</label><br>
+              <input
+                type="text"
+                id="category"
+                name="category"
+                required
+                minlength="2"
+                maxlength="40"
+                placeholder="Enter category">
+            </p>
+
+            <p>
+              <label for="description">Description:</label><br>
+              <textarea
+                id="description"
+                name="description"
+                rows="6"
+                cols="40"
+                required
+                minlength="10"
+                maxlength="500"
+                placeholder="Enter book description"></textarea>
+            </p>
+
+            <p>
+              <label for="availability">Availability Status:</label><br>
+              <select id="availability" name="availability" required>
+                <option value="">Select availability</option>
+                <option value="available">Available</option>
+                <option value="not_available">Not Available</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="language">Language:</label><br>
+              <input
+                type="text"
+                id="language"
+                name="language"
+                placeholder="Enter book language">
+            </p>
+
+            <p>
+              <label for="publish_year">Publish Year:</label><br>
+              <input
+                type="number"
+                id="publish_year"
+                name="publish_year"
+                min="1000"
+                max="9999"
+                placeholder="Enter publish year">
+            </p>
+
+            <p>
+              <button type="submit">View Details</button>
+              <button type="reset">Clear</button>
+            </p>
+          </fieldset>
+        </form>
+      </article>
+    </section>
+
+   
+  </main>
+  <hr>
+
+   <footer>
+        <p>&copy; 2026 Online Library. All rights reserved.</p>
+        <p>
+            Quick Links
+            <br>
+            <a href="Home.html">Home</a> <br>
+            <a href="About Us.html">About</a> <br>
+            <a href="servicess.html">Books</a> <br>
+            <a href="contact.html">Contact Us</a> <br>
+        </p>
+        <p>Email: info@onlinelibrary.com</p>
+    </footer>
+
+</body>
+</html>
