@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registration page for the Online Library website.">
+    <title>Online Library | Registration</title>
+</head>
+<body>
+    <!-- Replace this block with the team's shared/reusable navigation bar if needed -->
+    <header>
+         <nav>
+        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
+        <a href="profile.html">Profile</a>&nbsp&nbsp
+        <a href="Home.html">Home</a>&nbsp&nbsp
+        <a href="About Us (4).html">About Us</a>&nbsp&nbsp
+        <a href="servicess (2).html">Books</a>&nbsp&nbsp
+        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
+        <a href="login.html">Login |</a>
+        <a href="signup.html">Sign Up</a>
+    </nav>
+    <hr>
+    <h1>Sign Up</h1>
+    </header>
+
+    <main>
+        <section>
+            <p>Please fill in all required fields to create your account.</p>
+            <p><strong>Note:</strong> Fields marked with * are required.</p>
+
+            <!--
+                HTML-only phase note:
+                Matching password and confirm password exactly cannot be fully validated using HTML only.
+                This page uses required fields, suitable input types, minlength/maxlength, and pattern validation.
+                Final password matching can be handled in a later phase using JavaScript or backend validation.
+            -->
+
+            <form action="Home.html" method="get" autocomplete="on">
+                <fieldset>
+                    <legend>Account Information</legend>
+
+                    <p>
+                        <label for="username">Username *</label><br>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            minlength="4"
+                            maxlength="20"
+                            pattern="[A-Za-z0-9_]{4,20}"
+                            title="Username must be 4 to 20 characters and can contain letters, numbers, and underscores only."
+                            required
+                            autocomplete="username">
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address *</label><br>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                            autocomplete="email">
+                    </p>
+
+                    <p>
+                        <label for="password">Password *</label><br>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            minlength="8"
+                            maxlength="20"
+                            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}"
+                            title="Password must be 8 to 20 characters and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+                            required
+                            autocomplete="new-password">
+                    </p>
+
+                    <p>
+                        <label for="confirm_password">Confirm Password *</label><br>
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Re-enter your password"
+                            minlength="8"
+                            maxlength="20"
+                            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}"
+                            title="Please re-enter the same password using the same password rules."
+                            required
+                            autocomplete="new-password">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Account Type *</legend>
+                    <p>Select whether you want to register as an admin or a user.</p>
+
+                    <p>
+                        <input type="radio" id="user" name="is_admin" value="0" required>
+                        <label for="user">User</label>
+                    </p>
+
+                    <p>
+                        <input type="radio" id="admin" name="is_admin" value="1" required>
+                        <label for="admin">Admin</label>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Confirmation</legend>
+                    <p>
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">I confirm that the information entered is correct. *</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Create Account</button>
+                    <button type="reset">Clear Form</button>
+                </p>
+            </form>
+        </section>
+
+    </main>
+
+
+    <!-- Replace this block with the team's shared/reusable footer if needed -->
+     <hr>
+    <footer>
+        <p>&copy; 2026 Online Library. All rights reserved.</p>
+        <p>
+            Quick Links
+            <br>
+            <a href="Home.html">Home</a> <br>
+            <a href="About Us (4).html">About</a> <br>
+            <a href="servicess (2).html">Books</a> <br>
+            <a href="contact.html">Contact Us</a> <br>
+        </p>
+        <p>Email: info@onlinelibrary.com</p>
+    </footer>
+</body>
+</html>
