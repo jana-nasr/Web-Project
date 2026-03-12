@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
+        <a href="profile.html">Profile</a>&nbsp&nbsp
+        <a href="Home.html">Home</a>&nbsp&nbsp
+        <a href="About Us.html">About Us</a>&nbsp&nbsp
+        <a href="servicess.html">Books</a>&nbsp&nbsp
+        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
+        <a href="details.html">Book Details</a>&nbsp&nbsp
+        <a href="login.html">Login</a>
+    </nav>
+    </header>
+    <hr>
+
+    <main>
+        <section>
+            <h1>Admin Profile</h1>
+            <article>
+                <h2>Personal Information</h2>
+
+                <div>
+                    <p><strong>Name:</strong> </p>
+                    <p><strong>Email:</strong> </p>
+                    <p><strong>Phone:</strong> </p>
+                    <p><strong>Role:</strong></p>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>Adresses</h2>
+                <div>
+                    <button type="button">Add New Address</button>
+                </div>
+                <div>
+                    <h3>Default address</h3>
+                    <p>Name<br>Country</p>
+                    <button type="button">Edit</button>
+                    <button type="button">Delete</button>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h1>Admin Dashboard</h1>
+
+            <h2>Library Statistics</h2>
+            <div>
+                    
+                <h3>Total Books: </h3>
+                <h3>Total Users: </h3>
+                <h3>Borrowed Books: </h3>
+                <h3>Overdue Books: </h3>
+                <h3>Available Books: </h3>                    <h3>Categories: </h3>
+            </div>
+
+            <hr>
+
+            <div>
+                <h2>Quick Actions</h2>                    <button type="button">Add New Book</button>
+                <button type="button">Edit Books</button>
+                <button type="button">Delete Books</button>
+                <button type="button">Manage Users</button>
+                <button type="button">View Reports</button>
+            </div>
+
+            <hr>
+
+            <article>
+                <h2>Recently Added Books</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Book Name</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Harry Potter</td>
+                            <td>J.K. Rowling</td>
+                            <td>Fantasy</td>
+                            <td>Available</td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>102</td>
+                                <td>Atomic Habits</td>
+                                <td>James Clear</td>
+                                <td>Self Development</td>
+                                <td>Available</td>
+                                <td>
+                                    <button type="button">Edit</button>
+                                    <button type="button">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <hr>
+
+                <article>
+                    <h2>Users with overdue Books</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Book Borrowed</th>
+                                <th>Due Date</th>
+                                <th>Days overdue</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Overdue users will be listed here -->
+                        </tbody>
+                    </table>
+
+            <hr>
+
+            <article>
+                <h2>Most Borrowed Books This Month</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Book ID</th>
+                            <th>Book Name</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Times Borrowed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>101</td>
+                            <td>Harry Potter</td>
+                            <td>J.K. Rowling</td>
+                            <td>Fantasy</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>104</td>
+                            <td>The Alchemist</td>
+                            <td>Paulo Coelho</td>
+                            <td>novel</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>102</td>
+                            <td>Atomic Habits</td>
+                            <td>James Clear</td>
+                            <td>Self Development</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>      
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Online Library. All rights reserved.</p>
+        <p>
+            Quick Links
+            <br>
+            <a href="Home.html">Home</a> <br>
+            <a href="About Us.html">About</a> <br>
+            <a href="servicess.html">Books</a> <br>
+            <a href="contact.html">Contact Us</a> <br>
+        </p>
+        <p>Email: info@onlinelibrary.com</p>
+    </footer>
+</body>
