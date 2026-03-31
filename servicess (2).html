@@ -3,153 +3,188 @@
 
 <head>
     <title>Services / products page </title>
+    <link rel="stylesheet" href="servicess (2).css">
 </head>
 
 <body>
-    <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us (4).html">About Us</a>&nbsp&nbsp
-        <a href="servicess (2).html">Books</a>&nbsp&nbsp
-        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
-          <a href="login.html">Login | </a>
-        <a href="signup.html">Sign Up</a>
-    </nav>
-    <hr>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us (4).html" class="active">About Us</a></li>
+                <li><a href="servicess (2).html" class="active">Books</a></li>
+                <li><a href="borrowed.html" class="active">Borrowed Books</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div>
+    <div class="search-box">
         <form>
             <label>Search :</label>
             <input type="text" placeholder="Search by Title, Author or Category" name="Search" autofocus>
             <br>
         </form>
-        <br>
-        <br>
-        <div>
-            <label>choose book:</label>
-            <select>
-                <optgroup label="Available books">
-                    <option value="1">Harry potter</option>
-                    <option value="2">Atomic Habits</option>
-                    <option value="3">The Alchemist</option>
-                </optgroup>
-
-            </select>
-
-        </div>
-
-
 
     </div>
-    <h1>Find your book now:</h1>
-    <ul>
 
-        <div>
-            <img src="Harry.jpeg" alt="Harry potter book" width="=200px" height="200px">
-            <li>
+    <section class="all">
+        <div class="books">
+            <div class="card">
+                <img src="harry potter.png" alt="Harry potter book">
                 <h3> Harry potter</h3>
+                <p class="status available">Available</p>
                 <p> Author : JK Rowling</p>
                 <p>category : Fantasy</p>
                 <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord Voldemort.
                 </p>
-                <span>-----Available------</span>
-                <br>
                 <button>View details</button>
                 <button>Borrow</button>
 
-            </li>
-            <hr>
-        </div>
-        <div>
-            <img src="Atom.jpeg" alt="Atomic Habits book" width="=200px" height="200px">
-            <li>
+            </div>
+            <div class="card">
+                <img src="atomic.png" alt="Atomic Habits">
                 <h3> Atomic Habits</h3>
+                <p class="status available">Available</p>
                 <p> Author : James Clear</p>
                 <p>category : Self Development</p>
                 <p>Discription: A guide to building small habits that lead to remarkable personal changes. </p>
-                <span>-----Available------</span>
                 <br>
                 <button>View details</button>
                 <button>Borrow</button>
-
-            </li>
-            <hr>
-        </div>
-        <div>
-            <img src="Alchm.jpeg" alt="The Alchemist book" width="=200px" height="200px">
-            <li>
+            </div>
+            <div class="card">
+                <img src="alchemist.png" alt="The Alchemist book">
                 <h3> The Alchemist</h3>
+                <p class="status available">Available</p>
                 <p> Author : Paulo Coelho</p>
                 <p>category : Novel</p>
                 <p>Discription: A shepherd travels seeking treasure, only to find the journey matters more. </p>
-                <span>-----Available------</span>
+
                 <br>
                 <button>View details</button>
                 <button>Borrow</button>
-
-            </li>
-        </div>
-        <hr>
-        <div>
-            <img src="Screenshot 2026-03-07 231327.png" alt="Pride and Prejudice book" width="=200px" height="200px">
-            <li>
+            </div>
+            <div class="card">
+                <img src="pride.png" alt="Pride and Prejudice book">
                 <h3>Pride and Prejudice</h3>
+                <p class="status not-available">Not Available</p>
                 <p> Author : Jane Austen</p>
                 <p>category : Romance</p>
                 <p>Discription: A classic romance between Elizabeth Bennet and Mr. Darcy exploring love and class.</p>
-                <span>-----Not available------</span>
+
                 <br>
                 <button>View details</button>
                 <button disabled> Borrow</button>
-            </li>
-        </div>
-        <hr>
-        <div>
-            <img src="Screenshot 2026-03-07 231427.png" alt=" Pride and Prejudice book" width="=200px" height="200px">
-            <li>
-                <h3> Pride and Prejudice</h3>
+            </div>
+
+
+            <div class="card">
+                <img src="creative history.png" alt="the great gatsby">
+                <h3> The Great Gatsby</h3>
+                <p class="status not-available">Not Available</p>
+                <p> Author : F. Scott Fitzgerald</p>
+                <p>category : Fiction</p>
+                <p>Discription: A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.
+                </p>
+
+                <br>
+                <button>View details</button>
+                <button disabled> Borrow</button>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status not-available">Not Available</p>
                 <p> Author : J.R.R Tolkien</p>
                 <p>category : Fantasy</p>
-                <p>Discription: A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
-                <span>-----Not available------</span>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
                 <br>
                 <button>View details</button>
                 <button disabled> Borrow</button>
-            </li>
-        </div>
-        <hr>
-        <div>
-            <img src="Screenshot 2026-03-10 212354.png" alt=" The Great Gatsby book" width="=200px" height="200px">
-            <li>
-                <h3> The Great Gatsby</h3>
-                <p> Author : F. Scott Fitzgerald</p>
-                <p>category : Fiction/ Classic Literature</p>
-                <p>Discription: A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.
-                    The novel explores love, wealth, and the American Dream.</p>
-                <span>-----Not available------</span>
+            </div>
+            <div class="card">
+                <img src="new.png" alt="the old man and sea">
+                <h3> Hobbit</h3>
+                <p class="status available">Available</p>
+
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
                 <br>
                 <button>View details</button>
                 <button disabled> Borrow</button>
-            </li>
-        </div>
-    </ul>
-   <hr>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status not-available">Not Available</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+                <br>
+                <button>View details</button>
+                <button disabled> Borrow</button>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status available">Available</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+                <br>
+                <button>View details</button>
+                <button disabled> Borrow</button>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status not-available">Not Available</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+                <br>
+                <button>View details</button>
+                <button disabled> Borrow</button>
+            </div>
+    </section>
     <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links
-            <br>
-            <a href="Home.html">Home</a> <br>
-            <a href="About Us (4).html">About</a> <br>
-            <a href="servicess (2).html">Books</a> <br>
-            <a href="contact.html">Contact Us</a> <br>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Programming</a>
+                <a href="#">Novels</a>
+                <a href="#">Science</a>
+                <a href="#">History</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
         </p>
-        <p>Email: info@onlinelibrary.com</p>
     </footer>
 </body>
 
 
 
 </html>
-

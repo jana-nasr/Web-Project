@@ -3,104 +3,131 @@
 
 <head>
     <title>Services/products page </title>
+    <link rel="stylesheet" href="srevices_Admin.css">
 </head>
 
 <body>
-<nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="admin_profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us_Admin.html">About Us</a>&nbsp&nbsp
-        <a href="services_Admin.html">Books</a>&nbsp&nbsp
-        <a href="details.html">Add Book</a>&nbsp&nbsp
-          <a href="admin_login.html">Login |</a>
-        <a href="signup.html">Sign Up</a>
-    </nav>
-    <hr>
-    <br>
-    <br>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us (4).html" class="active">About Us</a></li>
+                <li><a href="servicess (2).html" class="active">Books</a></li>
+                <li><a href="borrowed.html" class="active">Borrowed Books</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div>
+    <div class="search-box">
         <form>
             <label>Search :</label>
             <input type="text" placeholder="Search by Title, Author or Category" name="Search" autofocus>
-            <br>
-            <br>
             <button type="button" onclick="location.href='details.html'">Add new book</button>
+            <br>
         </form>
+
     </div>
-     <br>
-        <div>
-            <label>choose book:</label>
-            <select>
-                <optgroup label="Available books">
-                    <option value="1">Harry potter</option>
-                    <option value="2">Atomic Habits</option>
-                    <option value="3">The Alchemist</option>
-                </optgroup>
 
-            </select>
-
-        </div>
-    <h1>Available books:</h1>
-    <ul>
-
-        <div>
-            <img src="Harry.jpeg" alt="Harry potter book" width="=200px" height="200px">
-            <li>
-
+    <section class="all">
+        <div class="books">
+            <div class="card">
+                <img src="harry potter.png" alt="Harry potter book">
                 <h3> Harry potter</h3>
+                <p class="status available">Available</p>
                 <p> Author : JK Rowling</p>
                 <p>category : Fantasy</p>
-                <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord Voldemort.
+                <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord
+                    Voldemort.
                 </p>
-
                 <button>View details</button>
-                <button>edit details</button>
-                <button>Delete book</button>
-            </li>
-            <hr>
-        </div>
-        <div>
-            <img src="Atom.jpeg" alt=" Atomic Habits book" width="=200px" height="200px">
-            <li>
+                <button>Edit</button>
+                <button>Delete</button>
+
+            </div>
+            <div class="card">
+                <img src="atomic.png" alt="Atomic Habits">
                 <h3> Atomic Habits</h3>
+                <p class="status available">Available</p>
                 <p> Author : James Clear</p>
                 <p>category : Self Development</p>
                 <p>Discription: A guide to building small habits that lead to remarkable personal changes. </p>
-
+                <br>
                 <button>View details</button>
-                <button>edit details</button>
-                <button>Delete book</button>
-            </li>
-            <hr>
-        </div>
-        <div>
-            <img src="Alchm.jpeg" alt=" The Alchemist book" width="=200px" height="200px">
-            <li>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <div class="card">
+                <img src="alchemist.png" alt="The Alchemist book">
                 <h3> The Alchemist</h3>
+                <p class="status available">Available</p>
                 <p> Author : Paulo Coelho</p>
                 <p>category : Novel</p>
                 <p>Discription: A shepherd travels seeking treasure, only to find the journey matters more. </p>
 
+                <br>
                 <button>View details</button>
-                <button>edit details</button>
-                <button>Delete book</button>
-            </li>
-        </div>
-    </ul>
-   <hr>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status available">Available</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+                <br>
+                <button>View details</button>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <div class="card">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status available">Not Available</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+                <br>
+                <button>View details</button>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+    </section>
     <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links
-            <br>
-            <a href="Home_Admin.html">Home</a> <br>
-            <a href="About Us_Admin.html">About</a> <br>
-            <a href="services_Admin.html">Books</a> <br>
-            <a href="contact_admin.html">Contact Us</a> <br>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Programming</a>
+                <a href="#">Novels</a>
+                <a href="#">Science</a>
+                <a href="#">History</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
         </p>
-        <p>Email: info@onlinelibrary.com</p>
     </footer>
 
 
@@ -108,9 +135,3 @@
 
 
 </html>
-
-
-
-
-
-
