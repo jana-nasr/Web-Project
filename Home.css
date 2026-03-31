@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: #00192F;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000
+}
+
+ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 12px;
+    background-color: #00192F;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo {
+    border-radius: 20%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+ul li a {
+    border-radius: 20px;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li.login {
+    margin-left: auto;
+    background-color: #A26D5D;
+    border-radius: 20px;
+
+}
+
+ul li.signup {
+    background-color: #A26D5D;
+    border-radius: 20px;
+
+}
+
+
+ul li a:hover {
+    border-radius: 20px;
+    background-color: #9AB5AE;
+}
+
+
+
+.hero {
+    width: 100%;
+    height: 800px;
+    background-image: url("background.png");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-color: #DBDAD5;
+}
+
+.hero .content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    padding-left: 20px;
+}
+
+.hero .content h1 {
+    font-size: 60px;
+    margin-top: 100px;
+    color: #4C6665;
+}
+
+.hero .content p {
+    font-size: 30px;
+    color: grey;
+}
+
+.hero .content .btn {
+    padding: 10px 20px;
+    background-color: #A26D5D;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 14px 16px;
+
+}
+
+.hero .content .btn:hover {
+    background-color: #9AB5AE;
+}
+
+.about {
+
+    width: 100%;
+    height: 400px;
+    display: flex;
+    gap: 50px;
+    background: linear-gradient(to right, #1b3644, #3e636e);
+    color: white;
+    padding: 0px 0px 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.about h2 {
+    font-size: 50px;
+}
+
+.about p {
+    font-size: 20px;
+    margin-top: 20px;
+    width: 50%;
+
+}
+
+.categ {
+    width: 100%;
+    height: 400px;
+    background-color: #DBDAD5;
+    gap: 20px;
+}
+
+.categ h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-top: 20px;
+    color: #00192F;
+    padding-left: 20px;
+}
+
+.categ .buttons {
+    display: flex;
+    gap: 60px;
+    padding-left: 20px;
+}
+
+.categ .buttons button {
+    padding: 100px 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #4C6665;
+    color: white;
+}
+
+.categ .buttons button:hover {
+    background-color: #9AB5AE;
+}
+
+.books {
+  padding: 20px 20px;
+  text-align: center;
+  background-color:#1b3644 ;
+}
+.books h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #DBDAD5;
+  text-align: left;
+}
+.book-cards {
+
+  display: flex;
+  gap: 125px;
+  justify-content: left;
+  
+}
+
+.book-card {
+  background-color: #DBDAD5;
+  width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  text-align: center;
+}
+.book-card img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.book-card h3 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+.book-card p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
+}
+.book-card span {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: green;
+  margin-top: auto;
+}
+.book-card .buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: auto;
+  border-radius: 15px;
+ 
+}
+
+.book-card .buttons button {
+  padding: 12px 20px;  
+  font-size: 16px;      
+  border-radius: 10px;
+  background-color: #A26D5D;
+    color: white;
+}
+.book-card .buttons button:hover {
+  background-color: #9AB5AE;
+}
+.more-card {
+  display: flex;
+  align-items: flex-end; 
+
+
+    
+}
+.more-card a button{
+      font-size: 16px;    
+  padding: 10px 15px;  
+  border-radius: 10px;
+    background-color: #A26D5D;
+        color: white;
+   
+}
+.more-card a button:hover {
+  background-color: #9AB5AE;
+}
+footer {
+  background-color: #DBDAD5;
+  color: #1b3644;
+  padding: 40px 20px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+.footer-col h3 {
+  margin-bottom: 15px;
+}
+
+.footer-col a {
+  display: block;
+  color: #1b3644;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
