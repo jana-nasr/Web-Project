@@ -4,124 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
     <title>My Dashboard</title>
 </head>
 <body>
     <header>
-    <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us (4).html">About Us</a>&nbsp&nbsp
-        <a href="servicess (2).html">Books</a>&nbsp&nbsp
-        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
-          <a href="login.html">Login | </a>
-        <a href="signup.html">Sign Up</a>
-    </nav>
+      <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us (4).html" class="active">About Us</a></li>
+                <li><a href="servicess (2).html" class="active">Books</a></li>
+                <li><a href="borrowed.html" class="active">Borrowed Books</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
     </header>
 
     <hr>
 
-    <main>
-        <section>
-            <h1>My Profile</h1>
-
-            <article>
-                <h2>Personal Information</h2>
-
-                <div>
-                    <p><strong>Name:</strong> </p>
-                    <p><strong>Email:</strong> </p>
-                    <p><strong>Phone:</strong> </p>
-                </div>
-            </article>
-
-            <hr>
-
-            <article>
-                <h2>Addresses</h2>
-
-                <div>
-                   <button type="button"> Add New Address</button>
-                </div>
-
-                <div>
-                    <h3>Default address</h3>
-                    <p>Name<br>Country</p>
-
-                    <button type="button">Edit</button>
-                    <button type="button">Delete</button>
-                </div>
-            </article>
-        </section>
-
-        <hr>
-
-        <section>
+    <main class="container">
+        <div class="card main-card">
             <h1>My Dashboard</h1>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <p class="stat-label">Books Borrowed</p>
+                    <p class="stat-value">3</p>
+                </div>
+                <div class ="stat-item">
+                    <p class="stat-label">Due This Week</p>
+                    <p class="stat-value">0</p>
+                </div>
+                <div class="stat-item overdue">
+                    <p class="stat-label overdue">Overdue Books</p>
+                    <p class="stat-value overdue">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="card profile-card">
+            <h2>Currently Borrowed Books</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pride and Prejudice</td>
+                        <td>Jane Austen</td>
+                        <td>Due in 2 weeks</td>
+                        <td><button class="btn-action">Return</button></td>
+                    </tr>
+                    <tr>
+                        <td>The Hobbit</td>
+                        <td>J.R.R Tolkien</td>
+                        <td>Due in 3 weeks</td>
+                        <td><button class="btn-action">Return</button></td>
+                    </tr>
+                    <tr>
+                        <td>The Great Gatsby</td>
+                        <td>F. Scott Fitzgerald</td>
+                        <td>Due in 1 month</td>
+                        <td><button class="btn-action">Return</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <div>
-                <div>
-                    <h3>Books Borrowed</h3>
-                    <p>3</p>
-                </div>
-                <div>
-                    <h3>Due This Week</h3>
-                    <p>0</p>
-                </div>
-                <div>
-                    <h3>Overdue Books</h3>
-                    <p>0</p>
+        <div class="info-grid">
+             <div class="card">
+                <h2>Personal Information</h2>
+                <div class="info-list">
+                    <p><strong>Name:</strong> </p>
+                    <hr>
+                    <p><strong>Email:</strong> </p>
+                    <hr>
+                    <p><strong>Phone:</strong> </p>
                 </div>
             </div>
 
-            <hr>
+            <div class="card">
+                <h2>Addresses</h2>
+                <button class="btn-add"> Add New Address</button>
+                <div class="adress-box">
+                        <h3>Default address</h3>
+                        <p>Name<br>Country</p>
+                    <div class="adress-actions">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="profile-background.png" opacity="0.5" alt="Background Image" class="background-image">
+        <img src="profile-background2.png" opacity="0.5" alt="Background Image" class="background-image2">
 
-            <article>
-                <h2>Currently Borrowed Books</h2>
-                <table border="1" cellpadding="10" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Book Name</th>
-                            <th>Author</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Pride and Prejudice</td>
-                            <td>Jane Austen</td>
-                            <td>Due in 2 weeks</td>
-                        </tr>
-                        <tr>
-                            <td>The Hobbit</td>
-                            <td>J.R.R Tolkien</td>
-                            <td>Due in 3 weeks</td>
-                        </tr>
-                        <tr>
-                            <td>The Great Gatsby</td>
-                            <td>F. Scott Fitzgerald</td>
-                            <td>Due in 1 month</td>
-                        </tr>
-                    </tbody>
-                </table>
-                    
-            </article>
-        </section>
-
-        <hr>
     </main>
 
     <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links
-            <br>
-            <a href="Home.html">Home</a> <br>
-            <a href="About Us (4).html">About</a> <br>
-            <a href="servicess (2).html">Books</a> <br>
-            <a href="contact.html">Contact Us</a> <br>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Programming</a>
+                <a href="#">Novels</a>
+                <a href="#">Science</a>
+                <a href="#">History</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
         </p>
-        <p>Email: info@onlinelibrary.com</p>
     </footer>
 </body>
