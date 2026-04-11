@@ -2,72 +2,205 @@
 <html>
 <head>
     <title>Contact Us</title>
+    <style>
+        /* Color Palette Applied:
+           Navy: #00192F | Brown: #A26D5D | Spruce: #4C6665 | Green: #9AB5AE | Beige: #DBDAD5 
+        */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DBDAD5; /* Beige Background */
+            color: #00192F; /* Navy Text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Forces body to take full height of the screen */
+        }
+
+        nav {
+            background-color: #00192F; /* Navy */
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            color: #DBDAD5; /* Beige */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #9AB5AE; /* Green on hover */
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* Allows this section to grow and push the footer down */
+            padding: 40px 20px;
+        }
+
+        .contactForum {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            border-top: 5px solid #4C6665; /* Spruce accent */
+            border-radius: 6px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 20px rgba(0, 25, 47, 0.15); /* Soft Navy shadow */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .contactForum h1 {
+            margin-top: 0;
+            color: #00192F; /* Navy */
+            margin-bottom: 10px;
+        }
+
+        .contactForum p.subtitle {
+            color: #4C6665;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4C6665; /* Spruce */
+        }
+
+        .input-group input[type="text"], 
+        .input-group input[type="email"],
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #9AB5AE; /* Green */
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            resize: vertical; /* Allows the user to only resize the text area up and down */
+        }
+
+        .input-group input[type="text"]:focus, 
+        .input-group input[type="email"]:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #4C6665; /* Spruce */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #A26D5D; /* Brown */
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4C6665; /* Spruce */
+        }
+
+        .contactForum a {
+            color: #A26D5D; /* Brown */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contactForum a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #00192F; /* Navy */
+            color: #DBDAD5; /* Beige */
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Automatically pushes to the bottom of the flex container */
+        }
+
+        footer a {
+            color: #9AB5AE; /* Green */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #A26D5D; /* Brown */
+        }
+    </style>
 </head>
 
 <body>
 
-   <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us (4).html">About Us</a>&nbsp&nbsp
-        <a href="servicess (2).html">Books</a>&nbsp&nbsp
-        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
-          <a href="login.html">Login | </a>
-        <a href="signup.html">Sign Up</a>
+    <nav>
+        <img src="logo.png" alt="Logo" class="logo" width="50" height="50" style="margin-right: 20px;">
+        <a href="Home.html">Home</a>
+        <a href="About Us (4).html">About Us</a>
+        <a href="servicess (2).html">Books</a>
+        <a href="login.html">Login</a>
     </nav>
-    <hr>
 
-  <h1>Contact Us</h1>
-  <p>If you are having trouble logging in or have any questions, please send us a message below.</p>
+    <div class="contact-wrapper">
+        <div class="contactForum">
+            <h1>Contact Us</h1>
+            <p class="subtitle">If you are having trouble logging in or have any questions, please send us a message below.</p>
 
-  <form>
-    <div>
-      <label for="name">Name: </label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <form>
+                <div class="input-group">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" placeholder="someone@something.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Message: </label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <div>
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+
+            <div style="margin-top: 20px;">
+                <p>&larr; <a href="login.html">Back to Login</a></p>
+            </div>
+        </div>
     </div>
 
-    <br>
-
-    <div>
-      <label for="email">Email: </label>
-      <input type="email" id="email" name="email" placeholder="someone@something.com" required>
-    </div>
-
-    <br>
-
-    <div>
-      <label for="message">Message: </label>
-      <br>
-      <textarea id="message" name="message" rows="5" cols="30" placeholder="How can we help you?" required></textarea>
-    </div>
-
-    <br>
-
-    <div>
-      <input type="submit" value="Send Message">
-    </div>
-  </form>
-
-  <br>
-  <div>
-    <p><a href="login.html">Back to Login</a></p>
-  </div>
-  <hr>
     <footer>
         <p>&copy; 2026 Online Library. All rights reserved.</p>
         <p>
-            Quick Links
-            <br>
-            <a href="Home.html">Home</a> <br>
-            <a href="About Us (4).html">About</a> <br>
-            <a href="servicess (2).html">Books</a> <br>
-            <a href="contact.html">Contact Us</a> <br>
+            Quick Links<br>
+            <a href="Home.html">Home</a> | 
+            <a href="About Us (4).html">About</a> | 
+            <a href="servicess (2).html">Books</a> | 
+            <a href="contact.html">Contact Us</a>
         </p>
         <p>Email: info@onlinelibrary.com</p>
     </footer>
 
 </body>
-
 </html>
-
