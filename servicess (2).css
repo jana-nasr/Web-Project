@@ -259,3 +259,7 @@ footer {
     background-color: #5a3e2b;
     color: white;
 }
+
+.borrow-btn.borrowed {
+    background-color: red !important;
+}

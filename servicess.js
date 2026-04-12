@@ -71,19 +71,46 @@ function filterBooks(type) {
         }
     });
 }
-borrowButtons.forEach(button => {
+
+
+
+document.querySelectorAll(".borrow-btn").forEach(button => {
     button.addEventListener("click", function () {
 
         const card = this.closest(".card");
 
-        const statusElement = card.querySelector(".status");
-        statusElement.innerText = "Borrowed";
+        const title = card.querySelector("h3").innerText;
 
-        statusElement.classList.remove("available");
-        statusElement.classList.add("not-available");
+        let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
 
+        // prevent duplicates
+        const exists = borrowedBooks.some(book => book.title === title);
+
+        if (!exists) {
+            borrowedBooks.push({
+                title,
+                author: card.querySelectorAll("p")[1].innerText,
+                category: card.querySelectorAll("p")[2].innerText,
+
+            });
+
+            localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+        }
+
+
+        const status = card.querySelector(".status");
+
+        status.innerText = "Borrowed";
+        status.classList.remove("available");
+        status.classList.add("not-available");
+
+        // 🔥 REMOVE "AVAILABLE" STATE VISUALLY
         card.dataset.status = "borrowed";
 
+        // disable button
+        this.innerText = "Borrowed";
         this.disabled = true;
+        this.style.backgroundColor = "red";
+
     });
 });

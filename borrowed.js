@@ -1,105 +1,43 @@
-const searchinput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".card");
-const viewButtons = document.querySelectorAll(".view-btn");
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("closeBtn");
+const container = document.getElementById("borrowedContainer");
 
-searchinput.addEventListener("input", function () {
-    const value = searchinput.value.toLowerCase();
+let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
 
-    cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
+function renderBooks() {
+    container.innerHTML = "";
 
-        if (text.includes(value)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-});
+    if (borrowedBooks.length === 0) {
+        container.innerHTML = "<p>No borrowed books yet</p>";
+        return;
+    }
 
-viewButtons.forEach(button => {
-    button.addEventListener("click", function () {
+    borrowedBooks.forEach(book => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.dataset.title = book.title;
 
-        const card = this.parentElement;
+        card.innerHTML = `
+            <h3>${book.title}</h3>
+            <p class="status not-available">Borrowed</p>
+            <p>${book.author}</p>
+            <p>${book.category}</p>
+            <button class="remove-btn">Remove</button>
+        `;
 
-        const title = card.querySelector("h3").innerText;
-        const author = card.querySelectorAll("p")[1].innerText;
-        const category = card.querySelectorAll("p")[2].innerText;
-        const status = card.querySelector(".status").innerText;
-
-        const pages = card.dataset.pages;
-        const lang = card.dataset.language;
-        const desc = card.dataset.desc;
-        const borrow = card.dataset.borrowed;
-
-        document.getElementById("modalTitle").innerText = title;
-        document.getElementById("modalAuthor").innerText = author;
-        document.getElementById("modalCategory").innerText = category;
-        document.getElementById("modalStatus").innerText = "Status: " + status;
-        document.getElementById("modalPages").innerText = "Pages: " + pages;
-        document.getElementById("modalLang").innerText = "Language: " + lang;
-        document.getElementById("modalborrow").innerText = "Borrowed: " + borrow;
-        document.getElementById("modalDesc").innerText = desc;
-
-        modal.style.display = "block";
-    });
-});
-
-closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-});
-
-const borrowButtons = document.querySelectorAll(".card button:nth-of-type(2)");
-
-borrowButtons.forEach(button => {
-    button.addEventListener("click", function () {
-
-        const card = this.parentElement;
-        const title = card.querySelector("h3").innerText;
-
-        const statusElement = card.querySelector(".status");
-        statusElement.innerText = "Borrowed";
-
-        statusElement.classList.remove("available");
-        statusElement.classList.add("not-available");
-
-        this.disabled = true;
-
-
-    });
-});
-
-function filterBooks(type) {
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-        const status = card.dataset.status;
-        const category = card.dataset.category;
-
-        if (type === "all") {
-            card.style.display = "block";
-        }
-        else if (type === status || type === category) {
-            card.style.display = "block";
-        }
-        else {
-            card.style.display = "none";
-        }
+        container.appendChild(card);
     });
 }
-const removeButtons = document.querySelectorAll(".remove-btn");
 
-removeButtons.forEach(btn => {
-    btn.addEventListener("click", function () {
-        const card = this.parentElement;
+renderBooks();
 
-        const bookName = card.querySelector("h3").innerText;
+container.addEventListener("click", function (e) {
+    if (e.target.classList.contains("remove-btn")) {
+        const card = e.target.closest(".card");
+        const title = card.dataset.title;
 
+        borrowedBooks = borrowedBooks.filter(book => book.title !== title);
 
+        localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
 
-
-        card.remove();
-
-    });
+        renderBooks();
+    }
 });

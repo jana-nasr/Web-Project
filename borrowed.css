@@ -244,3 +244,43 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+body {
+    font-family: Arial;
+    background-color: #f5f5f5;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.status {
+    color: red;
+    font-weight: bold;
+}
+
+.remove-btn {
+    margin-top: 10px;
+    padding: 8px;
+    border: none;
+    background: crimson;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: darkred;
+}
