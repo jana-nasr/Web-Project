@@ -357,7 +357,7 @@ footer {
 .popup {
     visibility: hidden;
     min-width: 200px;
-    background-color: #2ecc71;
+    background-color: #A26D5D;
     color: white;
     text-align: center;
     padding: 15px 20px;
@@ -388,7 +388,7 @@ footer {
 }
 
 .save-btn {
-    background-color: #28a745;
+    background-color: #A26D5D;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -398,5 +398,5 @@ footer {
 }
 
 .save-btn:hover {
-    background-color: #218838;
+    background-color: #9AB5AE;
 }
