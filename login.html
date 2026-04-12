@@ -135,6 +135,8 @@
         function checkAdmin(event) {
             // Get the typed email
             var emailValue = document.getElementById('email').value.trim().toLowerCase();
+
+            localStorage.setItem("userEmail", emailValue);
             
             // Check if it's the admin
             if (emailValue === 'admin@onlinelibrary.com') {
