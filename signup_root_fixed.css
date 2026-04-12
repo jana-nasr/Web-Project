@@ -14,7 +14,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: var(--navy);
-    background-color: var(--beige);
+    background-color: antiquewhite; 
 }
 
 .navbar {
@@ -280,8 +280,8 @@ ul li a:hover {
 }
 
 footer {
-    background-color: var(--beige);
-    color: #1b3644;
+    background-color: #DBDAD5;
+  color: #1b3644;
     padding: 40px 20px;
 }
 
