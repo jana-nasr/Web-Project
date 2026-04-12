@@ -147,8 +147,11 @@ ul li a:hover {
 }
 
 .card img {
-    width: 100%;
-    border-radius: 8px;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .card button {

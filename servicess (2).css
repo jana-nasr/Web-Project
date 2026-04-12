@@ -130,10 +130,20 @@ ul li a:hover {
     text-align: center;
 }
 
-.card img {
-    width: 100%;
+.book-card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 
-    border-radius: 8px;
+.card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .card button {
