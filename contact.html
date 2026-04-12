@@ -17,25 +17,65 @@
             min-height: 100vh; /* Forces body to take full height of the screen */
         }
 
-        nav {
-            background-color: #00192F; /* Navy */
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .navbar {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 70px;
+  background-color: #00192F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000
+}
 
-        nav a {
-            color: #DBDAD5; /* Beige */
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+ul {
 
-        nav a:hover {
-            color: #9AB5AE; /* Green on hover */
-        }
+  list-style-type: none;
+  margin: 0;
+  padding: 12px;
+  background-color: #00192F;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+ul li a {
+  border-radius: 20px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li.login {
+  margin-left: auto;
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+ul li.signup {
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+
+ul li a:hover {
+  border-radius: 20px;
+  background-color: #9AB5AE;
+}
+
+
 
         .contact-wrapper {
             display: flex;
@@ -129,34 +169,64 @@
             text-decoration: underline;
         }
 
-        footer {
-            background-color: #00192F; /* Navy */
-            color: #DBDAD5; /* Beige */
-            text-align: center;
-            padding: 20px;
-            margin-top: auto; /* Automatically pushes to the bottom of the flex container */
-        }
+       footer {
+  background-color: #DBDAD5;
+  color: #1b3644;
+  padding: 40px 20px;
+}
 
-        footer a {
-            color: #9AB5AE; /* Green */
-            text-decoration: none;
-        }
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
-        footer a:hover {
-            color: #A26D5D; /* Brown */
-        }
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+}
+
+.footer-col a {
+  display: block;
+  color: #1b3644;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="50" height="50" style="margin-right: 20px;">
-        <a href="Home.html">Home</a>
-        <a href="About Us (4).html">About Us</a>
-        <a href="servicess (2).html">Books</a>
-        <a href="login.html">Login</a>
-    </nav>
+       <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us (4).html" class="active">About Us</a></li>
+                <li><a href="servicess (2).html" class="active">Books</a></li>
+                <li><a href="borrowed.html" class="active">Borrowed Books</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
 
     <div class="contact-wrapper">
         <div class="contactForum">
@@ -190,16 +260,37 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links<br>
-            <a href="Home.html">Home</a> | 
-            <a href="About Us (4).html">About</a> | 
-            <a href="servicess (2).html">Books</a> | 
-            <a href="contact.html">Contact Us</a>
+ <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                 <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
         </p>
-        <p>Email: info@onlinelibrary.com</p>
     </footer>
 
 </body>

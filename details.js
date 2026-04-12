@@ -35,7 +35,7 @@ const preview = {
 
 function getCustomBooks() {
   try {
-    return JSON.parse(localStorage.getItem(CUSTOM_BOOKS_KEY)) || [];
+    return JSON.parse(localStorageStorage.getItem(CUSTOM_BOOKS_KEY)) || [];
   } catch (error) {
     return [];
   }
@@ -176,3 +176,4 @@ form.addEventListener("submit", (event) => {
 resetPreview();
 updatePreview();
 renderRecentBooks();
+localStorage.clear();
