@@ -3,151 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Details Page</title>
+  <title>Book Details | The Readers</title>
+  <link rel="stylesheet" href="details.css">
 </head>
 <body>
-
- <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="admin_profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us_Admin.html">About Us</a>&nbsp&nbsp
-        <a href="services_Admin.html">Books</a>&nbsp&nbsp
-        <a href="details.html">Add Book</a>&nbsp&nbsp
-          <a href="admin_login.html">Login |</a>
-        <a href="signup.html">Sign Up</a>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><img src="Logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About Us (4).html">About Us</a></li>
+        <li><a href="servicess (2).html">Books</a></li>
+        <li><a href="borrowed.html">Borrowed Books</a></li>
+        <li><a href="details.html" class="current">Book Details</a></li>
+        <li class="login"><a href="login.html">Login</a></li>
+        <li class="signup"><a href="signup.html">Sign Up</a></li>
+      </ul>
     </nav>
-    <hr>
+  </header>
 
+  <main class="page-shell">
+    <section class="layout single-top">
+      <div class="panel form-panel">
+        <h2 class="section-title">Enter Book Details</h2>
 
-  
-  <main>
-    <section>
-      <header>
-        <h2>Enter Book Details</h2>
-      </header>
+        <div id="formMessage" class="message" aria-live="polite"></div>
 
-      <article>
-        <form action="#" method="get">
-          <fieldset>
-            <legend>Selected Book Information</legend>
+        <form id="bookForm" class="book-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="book_id">Book ID</label>
+              <input type="text" id="book_id" name="book_id" required minlength="1" maxlength="20" placeholder="Enter book ID">
+            </div>
 
-            <p>
-              <label for="book_id">Book ID:</label><br>
-              <input
-                type="text"
-                id="book_id"
-                name="book_id"
-                required
-                minlength="1"
-                maxlength="20"
-                placeholder="Enter book ID">
-            </p>
+            <div class="field">
+              <label for="book_name">Book Name</label>
+              <input type="text" id="book_name" name="book_name" required minlength="2" maxlength="100" placeholder="Enter book name">
+            </div>
 
-            <p>
-              <label for="book_name">Book Name:</label><br>
-              <input
-                type="text"
-                id="book_name"
-                name="book_name"
-                required
-                minlength="2"
-                maxlength="100"
-                placeholder="Enter book name">
-            </p>
+            <div class="field">
+              <label for="author">Author</label>
+              <input type="text" id="author" name="author" required minlength="2" maxlength="60" placeholder="Enter author name">
+            </div>
 
-            <p>
-              <label for="author">Author:</label><br>
-              <input
-                type="text"
-                id="author"
-                name="author"
-                required
-                minlength="2"
-                maxlength="60"
-                placeholder="Enter author name">
-            </p>
+            <div class="field">
+              <label for="category">Category</label>
+              <input type="text" id="category" name="category" required minlength="2" maxlength="40" placeholder="Fantasy, Novel, Self-help...">
+            </div>
 
-            <p>
-              <label for="category">Category:</label><br>
-              <input
-                type="text"
-                id="category"
-                name="category"
-                required
-                minlength="2"
-                maxlength="40"
-                placeholder="Enter category">
-            </p>
+            <div class="field full">
+              <label for="description">Description</label>
+              <textarea id="description" name="description" required minlength="10" maxlength="500" placeholder="Enter book description"></textarea>
+            </div>
 
-            <p>
-              <label for="description">Description:</label><br>
-              <textarea
-                id="description"
-                name="description"
-                rows="6"
-                cols="40"
-                required
-                minlength="10"
-                maxlength="500"
-                placeholder="Enter book description"></textarea>
-            </p>
-
-            <p>
-              <label for="availability">Availability Status:</label><br>
+            <div class="field">
+              <label for="availability">Availability Status</label>
               <select id="availability" name="availability" required>
                 <option value="">Select availability</option>
                 <option value="available">Available</option>
                 <option value="not_available">Not Available</option>
               </select>
-            </p>
+            </div>
 
-            <p>
-              <label for="language">Language:</label><br>
-              <input
-                type="text"
-                id="language"
-                name="language"
-                placeholder="Enter book language">
-            </p>
+            <div class="field">
+              <label for="language">Language</label>
+              <input type="text" id="language" name="language" placeholder="Enter book language">
+            </div>
 
-            <p>
-              <label for="publish_year">Publish Year:</label><br>
-              <input
-                type="number"
-                id="publish_year"
-                name="publish_year"
-                min="1000"
-                max="9999"
-                placeholder="Enter publish year">
-            </p>
+            <div class="field">
+              <label for="publish_year">Publish Year</label>
+              <input type="number" id="publish_year" name="publish_year" min="1000" max="9999" placeholder="Enter publish year">
+            </div>
 
-            <p>
-              <button type="submit">View Details</button>
-              <button type="reset">Clear</button>
-            </p>
-          </fieldset>
+            <div class="field">
+              <label for="pages">Pages</label>
+              <input type="number" id="pages" name="pages" min="1" max="5000" placeholder="Enter page count">
+            </div>
+
+            <div class="field">
+              <label for="borrowed_count">Borrowed Count</label>
+              <input type="number" id="borrowed_count" name="borrowed_count" min="0" max="999999" placeholder="0">
+            </div>
+
+            <div class="field full">
+              <label for="cover_image">Cover Image URL</label>
+              <input type="url" id="cover_image" name="cover_image" placeholder="Optional image URL. Leave empty to use the default cover.">
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Save Book</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+            <a class="btn btn-secondary btn-link" href="servicess (2).html">Open Books Page</a>
+          </div>
         </form>
-      </article>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel preview-card">
+          <div class="preview-cover" id="previewCover">
+            <span id="previewBadge">Book preview</span>
+          </div>
+          <h3 id="previewTitle">Your book title will appear here</h3>
+          <div class="preview-meta">
+            <div id="previewAuthor">Author: -</div>
+            <div id="previewCategory">Category: -</div>
+            <div id="previewAvailability">Availability: -</div>
+            <div id="previewLanguage">Language: -</div>
+            <div id="previewPublishYear">Publish year: -</div>
+            <div id="previewPages">Pages: -</div>
+            <div id="previewBorrowed">Borrowed: -</div>
+            <div class="preview-description" id="previewDescription">Write a description and you will see it here instantly.</div>
+          </div>
+        </div>
+
+        <div class="panel quick-card">
+          <h3>Quick Links</h3>
+          <div class="quick-list">
+            <a href="Home.html">Go to Home</a>
+            <a href="servicess (2).html">Go to Books</a>
+            <a href="borrowed.html">Go to Borrowed Books</a>
+          </div>
+        </div>
+
+        <div class="panel added-card">
+          <h3>Recently Added</h3>
+          <div id="recentBooks" class="added-list"></div>
+        </div>
+      </aside>
     </section>
-
-   
   </main>
-   <hr>
-    <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>The Readers</h3>
         <p>
-            Quick Links
-            <br>
-            <a href="Home.html">Home</a> <br>
-            <a href="About Us_Admin.html">About</a> <br>
-            <a href="services_Admin.html">Books</a> <br>
-            <a href="contact_admin.html">Contact Us</a> <br>
+          Your gateway to a world of knowledge.<br>
+          Discover ,borrow and explore thousands of books online.
         </p>
-        <p>Email: info@onlinelibrary.com</p>
-    </footer>
+      </div>
 
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="Home.html">Home</a>
+        <a href="About Us (4).html">About</a>
+        <a href="servicess (2).html">Books</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <a href="#">Fantasy</a>
+        <a href="#">Novels</a>
+        <a href="#">Classic</a>
+        <a href="#">History</a>
+        <a href="#">Biography</a>
+      </div>
+    </div>
+    <p class="footer-bottom">
+      &copy; 2026 Online Library. All rights reserved.
+    </p>
+  </footer>
+
+  <script src="details.js"></script>
 </body>
-
 </html>
-
