@@ -1,0 +1,181 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite; 
+    color: #00192F; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Forces body to take full height of the screen */
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: #00192F;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 12px;
+    background-color: #00192F;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.logo {
+    border-radius: 20%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+ul li a {
+    border-radius: 20px;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    border-radius: 20px;
+    background-color: #9AB5AE;
+}
+
+/* --- Login Form Styles --- */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allows this section to grow and push the footer down */
+    padding: 20px;
+    margin-top: 70px; /* Added to offset the fixed navbar */
+}
+
+.loginForum {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-top: 5px solid #4C6665; /* Spruce accent */
+    border-radius: 6px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 20px rgba(0, 25, 47, 0.15); /* Soft Navy shadow */
+    text-align: center;
+}
+
+.loginForum h1 {
+    margin-top: 0;
+    color: #00192F; /* Navy */
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4C6665; /* Spruce */
+}
+
+.input-group input[type="email"], 
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #9AB5AE; /* Green */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.input-group input[type="email"]:focus, 
+.input-group input[type="password"]:focus {
+    outline: none;
+    border-color: #4C6665; /* Spruce */
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #A26D5D; /* Brown */
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #4C6665; /* Spruce */
+}
+
+.loginForum a {
+    color: #A26D5D; /* Brown */
+    text-decoration: none;
+}
+
+.loginForum a:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    background-color: #DBDAD5;
+    color: #1b3644;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    color: #1b3644;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
