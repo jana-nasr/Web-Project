@@ -3,6 +3,7 @@ const cards = document.querySelectorAll(".card");
 const viewButtons = document.querySelectorAll(".view-btn");
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
+const borrowButtons = document.querySelectorAll(".borrow-btn");
 
 searchinput.addEventListener("input", function () {
     const value = searchinput.value.toLowerCase();
@@ -50,25 +51,7 @@ closeBtn.addEventListener("click", function () {
     modal.style.display = "none";
 });
 
-const borrowButtons = document.querySelectorAll(".card button:nth-of-type(2)");
 
-borrowButtons.forEach(button => {
-    button.addEventListener("click", function () {
-
-        const card = this.parentElement;
-        const title = card.querySelector("h3").innerText;
-
-        const statusElement = card.querySelector(".status");
-        statusElement.innerText = "Borrowed";
-
-        statusElement.classList.remove("available");
-        statusElement.classList.add("not-available");
-
-        this.disabled = true;
-
-
-    });
-});
 
 function filterBooks(type) {
     const cards = document.querySelectorAll(".card");
@@ -88,3 +71,19 @@ function filterBooks(type) {
         }
     });
 }
+borrowButtons.forEach(button => {
+    button.addEventListener("click", function () {
+
+        const card = this.closest(".card");
+
+        const statusElement = card.querySelector(".status");
+        statusElement.innerText = "Borrowed";
+
+        statusElement.classList.remove("available");
+        statusElement.classList.add("not-available");
+
+        card.dataset.status = "borrowed";
+
+        this.disabled = true;
+    });
+});
