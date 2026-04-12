@@ -2,6 +2,7 @@
 let favorites = [];
 let currentBook = "";
 let currentCard = null;
+let selectedCard = null;
 
 function viewDetails(title, author, category, description, available, count) {
     currentBook = title;
@@ -44,7 +45,7 @@ function showPopup(message) {
     }, 2000);
 }
 function borrowBook(bookName, btn) {
-    showPopup(bookName + " Borrowed ");
+    showPopup(bookName + " Borrowed Successfully");
 
     btn.innerText = "Borrowed";
     btn.style.backgroundColor = "#00192f";
@@ -81,8 +82,21 @@ function closeEditModal() {
     document.getElementById("editModal").style.display = "none";
 }
 function deleteBook(btn) {
-    let card = btn.closest(".book-card");
+    selectedCard = btn.closest(".book-card");
 
-    showPopup("Book deleted ");
-    card.remove();
+    document.getElementById("deleteModal").style.display = "flex";
+}
+
+function closeDeleteModal() {
+    document.getElementById("deleteModal").style.display = "none";
+    selectedCard = null;
+}
+
+function confirmDelete() {
+    if (selectedCard) {
+        selectedCard.remove();
+        showPopup("Book deleted");
+    }
+
+    closeDeleteModal();
 }
