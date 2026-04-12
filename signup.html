@@ -1,147 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Registration page for the Online Library website.">
     <title>Online Library | Registration</title>
+    <link rel="stylesheet" href="signup_root_fixed.css">
 </head>
+
 <body>
-    <!-- Replace this block with the team's shared/reusable navigation bar if needed -->
     <header>
-         <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home.html">Home</a>&nbsp&nbsp
-        <a href="About Us (4).html">About Us</a>&nbsp&nbsp
-        <a href="servicess (2).html">Books</a>&nbsp&nbsp
-        <a href="borrowed.html">Borrowed Books</a>&nbsp&nbsp
-        <a href="login.html">Login |</a>
-        <a href="signup.html">Sign Up</a>
-    </nav>
-    <hr>
-    <h1>Sign Up</h1>
+        <nav class="navbar" aria-label="Main navigation">
+            <ul>
+                <li><img src="Logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About Us (4).html">About Us</a></li>
+                <li><a href="servicess (2).html">Books</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html" aria-current="page">Sign Up</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section>
-            <p>Please fill in all required fields to create your account.</p>
-            <p><strong>Note:</strong> Fields marked with * are required.</p>
+    <main class="signup-wrapper">
+        <section class="signup-card">
+            <h1>Create Account</h1>
+            <p class="intro-text">Join The Readers as a user or an admin and start exploring the library.</p>
 
-            <!--
-                HTML-only phase note:
-                Matching password and confirm password exactly cannot be fully validated using HTML only.
-                This page uses required fields, suitable input types, minlength/maxlength, and pattern validation.
-                Final password matching can be handled in a later phase using JavaScript or backend validation.
-            -->
+            <div id="formMessage" class="form-message" aria-live="polite"></div>
 
-            <form action="Home.html" method="get" autocomplete="on">
+            <form id="signupForm" action="#" method="post" novalidate>
                 <fieldset>
                     <legend>Account Information</legend>
 
-                    <p>
-                        <label for="username">Username *</label><br>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            placeholder="Enter your username"
-                            minlength="4"
-                            maxlength="20"
-                            pattern="[A-Za-z0-9_]{4,20}"
+                    <div class="input-group">
+                        <label for="username">Username *</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" minlength="4"
+                            maxlength="20" pattern="[A-Za-z0-9_]{4,20}"
                             title="Username must be 4 to 20 characters and can contain letters, numbers, and underscores only."
-                            required
-                            autocomplete="username">
-                    </p>
+                            autocomplete="username" required>
+                        <small>4–20 characters, letters, numbers, and underscores only.</small>
+                    </div>
 
-                    <p>
-                        <label for="email">Email Address *</label><br>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            required
-                            autocomplete="email">
-                    </p>
+                    <div class="input-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address"
+                            autocomplete="email" required>
+                        <small>Use a valid email such as name@example.com.</small>
+                    </div>
 
-                    <p>
-                        <label for="password">Password *</label><br>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Create a password"
-                            minlength="8"
-                            maxlength="20"
+                    <div class="input-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password"
+                            minlength="8" maxlength="20"
                             pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}"
                             title="Password must be 8 to 20 characters and include at least one uppercase letter, one lowercase letter, one number, and one special character."
-                            required
-                            autocomplete="new-password">
-                    </p>
+                            autocomplete="new-password" required>
+                        <small>8–20 characters with uppercase, lowercase, number, and special character.</small>
+                    </div>
 
-                    <p>
-                        <label for="confirm_password">Confirm Password *</label><br>
-                        <input
-                            type="password"
-                            id="confirm_password"
-                            name="confirm_password"
-                            placeholder="Re-enter your password"
-                            minlength="8"
-                            maxlength="20"
+                    <div class="input-group">
+                        <label for="confirm_password">Confirm Password *</label>
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            placeholder="Re-enter your password" minlength="8" maxlength="20"
                             pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}"
                             title="Please re-enter the same password using the same password rules."
-                            required
-                            autocomplete="new-password">
-                    </p>
+                            autocomplete="new-password" required>
+                        <small>Must exactly match the password above.</small>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Account Type *</legend>
-                    <p>Select whether you want to register as an admin or a user.</p>
-
-                    <p>
-                        <input type="radio" id="user" name="is_admin" value="0" required>
-                        <label for="user">User</label>
-                    </p>
-
-                    <p>
-                        <input type="radio" id="admin" name="is_admin" value="1" required>
-                        <label for="admin">Admin</label>
-                    </p>
+                    <div class="radio-group">
+                        <span class="group-label">Choose your role:</span>
+                        <label class="choice-option" for="user">
+                            <input type="radio" id="user" name="is_admin" value="0" required>
+                            <span>User</span>
+                        </label>
+                        <label class="choice-option" for="admin">
+                            <input type="radio" id="admin" name="is_admin" value="1" required>
+                            <span>Admin</span>
+                        </label>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Confirmation</legend>
-                    <p>
+                    <label class="choice-option checkbox-option" for="agree">
                         <input type="checkbox" id="agree" name="agree" required>
-                        <label for="agree">I confirm that the information entered is correct. *</label>
-                    </p>
+                        <span>I confirm that the information entered is correct. *</span>
+                    </label>
                 </fieldset>
 
-                <p>
-                    <button type="submit">Create Account</button>
-                    <button type="reset">Clear Form</button>
-                </p>
+                <div class="form-actions">
+                    <button type="submit" id="createAccountBtn">Create Account</button>
+                    <button type="reset" id="clearFormBtn">Clear Form</button>
+                </div>
+
+                <p class="bottom-link">Already have an account? <a href="login.html">Log in here</a>.</p>
             </form>
         </section>
-
     </main>
 
-
-    <!-- Replace this block with the team's shared/reusable footer if needed -->
-     <hr>
     <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links
-            <br>
-            <a href="Home.html">Home</a> <br>
-            <a href="About Us (4).html">About</a> <br>
-            <a href="servicess (2).html">Books</a> <br>
-            <a href="contact.html">Contact Us</a> <br>
-        </p>
-        <p>Email: info@onlinelibrary.com</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover, borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Online Library. All rights reserved.</p>
     </footer>
+
+    <script src="signup.js"></script>
 </body>
+
 </html>
