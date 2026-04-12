@@ -15,49 +15,63 @@ body {
 }
 
 /* --- Navbar Styles --- */
+
 .navbar {
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    width: 100%;
-    height: 70px;
-    background-color: #00192F;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 70px;
+  background-color: #00192F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 12px;
-    background-color: #00192F;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 12px;
+  background-color: #00192F;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .logo {
-    border-radius: 20%;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    display: block;
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
 }
 
 ul li a {
-    border-radius: 20px;
-    display: block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
+  border-radius: 20px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
+ul li.login {
+  margin-left: auto;
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+ul li.signup {
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+
 ul li a:hover {
-    border-radius: 20px;
-    background-color: #9AB5AE;
+  border-radius: 20px;
+  background-color: #9AB5AE;
 }
 
 /* --- Login Form Styles --- */
@@ -142,40 +156,41 @@ input[type="submit"]:hover {
 
 
 footer {
-    background-color: #DBDAD5;
-    color: #1b3644;
-    padding: 40px 20px;
+  background-color: #DBDAD5;
+  color: #1b3644;
+  padding: 40px 20px;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .footer-col {
-    flex: 1;
-    min-width: 200px;
+  flex: 1;
+  min-width: 200px;
 }
 
 .footer-col h3 {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .footer-col a {
-    display: block;
-    color: #1b3644;
-    text-decoration: none;
-    margin-bottom: 8px;
+  display: block;
+  color: #1b3644;
+  text-decoration: none;
+  margin-bottom: 8px;
 }
 
 .footer-col a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
 }
+
