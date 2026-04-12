@@ -4,7 +4,9 @@
 <head>
     <title>Services / products page </title>
     <link rel="stylesheet" href="servicess (2).css">
+
 </head>
+
 
 <body>
     <header>
@@ -25,133 +27,191 @@
     <div class="search-box">
         <form>
             <label>Search :</label>
-            <input type="text" placeholder="Search by Title, Author or Category" name="Search" autofocus>
+            <input type="text" id="searchInput" placeholder="Search by Title, Author or Category" name="Search"
+                autofocus>
+
             <br>
         </form>
+    </div>
+    <div class="filters">
+        <button onclick="filterBooks('all')">All</button>
+        <button onclick="filterBooks('available')">Available</button>
+        <button onclick="filterBooks('not-available')">Not Available</button>
+        <button onclick="filterBooks('Fantasy')">Fantasy</button>
+        <button onclick="filterBooks('Romance')">Romance</button>
+        <button onclick="filterBooks('Self-help')">Self-help</button>
+        <button onclick="filterBooks('Fiction')">Fiction</button>
+        <button onclick="filterBooks('novel')">Novel</button>
+        <button onclick="filterBooks('Self Development')">Self Development</button>
+
 
     </div>
 
     <section class="all">
         <div class="books">
-            <div class="card">
+            <div class="card" data-pages="320" data-language="English" data-status="available" data-category="Fantasy"
+                data-borrowed="500"
+                data-desc=" A boy discovers he's a wizard and attends Hogwarts to battle the dark lord Voldemort.">
                 <img src="harry potter.png" alt="Harry potter book">
+
                 <h3> Harry potter</h3>
                 <p class="status available">Available</p>
                 <p> Author : JK Rowling</p>
                 <p>category : Fantasy</p>
-                <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord Voldemort.
-                </p>
-                <button>View details</button>
+
+                <button class="view-btn">View details</button>
                 <button>Borrow</button>
 
+
             </div>
-            <div class="card">
+            <div class="card" data-pages="220" data-language="English" data-status="available"
+                data-category="Self Development" data-borrowed="500"
+                data-desc="A guide to building small habits that lead to remarkable personal changes.">
                 <img src="atomic.png" alt="Atomic Habits">
+                <br>
+                <br>
                 <h3> Atomic Habits</h3>
                 <p class="status available">Available</p>
                 <p> Author : James Clear</p>
                 <p>category : Self Development</p>
-                <p>Discription: A guide to building small habits that lead to remarkable personal changes. </p>
-                <br>
-                <button>View details</button>
+
+                <button class="view-btn">View details</button>
                 <button>Borrow</button>
             </div>
-            <div class="card">
+            <div class="card" data-pages="320" data-language="English" data-status="available" data-category="novel"
+                data-borrowed="500"
+                data-desc="A shepherd travels seeking treasure, only to find the journey matters more.">
                 <img src="alchemist.png" alt="The Alchemist book">
                 <h3> The Alchemist</h3>
                 <p class="status available">Available</p>
                 <p> Author : Paulo Coelho</p>
                 <p>category : Novel</p>
-                <p>Discription: A shepherd travels seeking treasure, only to find the journey matters more. </p>
 
-                <br>
-                <button>View details</button>
+                <button class="view-btn">View details</button>
                 <button>Borrow</button>
             </div>
-            <div class="card">
+            <div class="card" data-pages="520" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Romance"
+                data-desc=" A classic romance between Elizabeth Bennet and Mr. Darcy exploring love and class.">
                 <img src="pride.png" alt="Pride and Prejudice book">
                 <h3>Pride and Prejudice</h3>
-                <p class="status not-available">Not Available</p>
+                <p class="status not-available">Borrowed</p>
                 <p> Author : Jane Austen</p>
                 <p>category : Romance</p>
-                <p>Discription: A classic romance between Elizabeth Bennet and Mr. Darcy exploring love and class.</p>
 
-                <br>
-                <button>View details</button>
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
 
 
-            <div class="card">
+
+            <div class="card" data-pages="120" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Fantasy"
+                data-desc="A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+
+                <button class="view-btn">View details</button>
+                <button disabled> Borrow</button>
+            </div>
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Fiction"
+                data-desc="A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.">
                 <img src="creative history.png" alt="the great gatsby">
                 <h3> The Great Gatsby</h3>
-                <p class="status not-available">Not Available</p>
+                <p class="status not-available">Borrowed</p>
                 <p> Author : F. Scott Fitzgerald</p>
                 <p>category : Fiction</p>
-                <p>Discription: A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.
-                </p>
 
-                <br>
-                <button>View details</button>
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
-                <br>
-                <button>View details</button>
-                <button disabled> Borrow</button>
-            </div>
-            <div class="card">
+            <div class="card" data-pages="420" data-language="English" data-status="available" data-category="Fiction"
+                data-borrowed="500"
+                data-desc="A short novel about an old fisherman’s struggle with a giant fish, symbolizing perseverance and determination">
                 <img src="new.png" alt="the old man and sea">
-                <h3> Hobbit</h3>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h3> The old man and the sea</h3>
                 <p class="status available">Available</p>
 
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
-                <br>
-                <button>View details</button>
+                <p> Author : Ernest Hemingway</p>
+                <p>category : Fiction</p>
+
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Self-help" data-desc="A practical guide on how to overcome feeling stuck and make progress in your personal and
+                    professional life">
+                <img src="anatomy.png" alt="Anatony of a breakthrough">
                 <br>
-                <button>View details</button>
+                <br>
+                <h3> Anatony of a breakthrough</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : Adam Alter</p>
+                <p>category : self-help</p>
+
+
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
+            <div class="card" data-pages="220" data-language="English" data-status="available" data-category="Self-help"
+                data-borrowed="500" data-desc="An inspiring book that encourages young people to challenge themselves and take responsibility to
+                    grow and succeed">
+
+                <img src="do hard things.png" alt="Do hard Things book">
+                <br>
+                <br>
+                <br>
+                <h3> Do hard things </h3>
                 <p class="status available">Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
-                <br>
-                <button>View details</button>
+                <p> Author :Alex Harries </p>
+                <p>category : self-help</p>
+
+
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Self-help" data-desc="A step-by-step guide to achieving your goals by building confidence and using the power of positive
+                    thinking and action">
+                <img src="man.png" alt="Manifest">
                 <br>
-                <button>View details</button>
+                <br>
+                <br>
+                <br>
+                <h3> Manifest</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : Roxie Nafousi</p>
+                <p>category : self-help</p>
+
+                <button class="view-btn">View details</button>
                 <button disabled> Borrow</button>
             </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span id="closeBtn">&times;</span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalAuthor"></p>
+                    <p id="modalCategory"></p>
+                    <p id="modalDesc"></p>
+                    <p id="modalPages"></p>
+                    <p id="modalLang"></p>
+                    <p id="modalStatus"></p>
+                    <p id="modalborrow"></p>
+                </div>
+
+
+            </div>
+
     </section>
+
     <footer>
         <div class="footer-container">
 
@@ -183,8 +243,7 @@
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
+    <script src="servicess.js"></script>
 </body>
-
-
 
 </html>

@@ -21,83 +21,121 @@
             </ul>
         </nav>
     </header>
-
     <div class="search-box">
         <form>
             <label>Search :</label>
-            <input type="text" placeholder="Search by Title, Author or Category" name="Search" autofocus>
+            <input type="text" id="searchInput" placeholder="Search by Title, Author or Category" name="Search"
+                autofocus>
             <button type="button" onclick="location.href='details.html'">Add new book</button>
+
             <br>
         </form>
-
     </div>
 
+
+
     <section class="all">
+
         <div class="books">
-            <div class="card">
+            <div class="card" data-pages="320" data-language="English" data-status="available" data-category="Fantasy"
+                data-borrowed="500"
+                data-desc=" A boy discovers he's a wizard and attends Hogwarts to battle the dark lord Voldemort.">
                 <img src="harry potter.png" alt="Harry potter book">
+
                 <h3> Harry potter</h3>
                 <p class="status available">Available</p>
                 <p> Author : JK Rowling</p>
                 <p>category : Fantasy</p>
-                <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord
-                    Voldemort.
-                </p>
-                <button>View details</button>
-                <button>Edit</button>
-                <button>Delete</button>
+
+                <button class="edit-btn">Edit details</button>
+                <button class="delete-btn">Delete</button>
 
             </div>
-            <div class="card">
+            <div class="card" data-pages="220" data-language="English" data-status="available"
+                data-category="Self Development" data-borrowed="500"
+                data-desc="A guide to building small habits that lead to remarkable personal changes.">
                 <img src="atomic.png" alt="Atomic Habits">
+                <br>
+                <br>
                 <h3> Atomic Habits</h3>
                 <p class="status available">Available</p>
                 <p> Author : James Clear</p>
                 <p>category : Self Development</p>
-                <p>Discription: A guide to building small habits that lead to remarkable personal changes. </p>
-                <br>
-                <button>View details</button>
-                <button>Edit</button>
-                <button>Delete</button>
+
+                <button class="edit-btn">Edit details</button>
+                <button class="delete-btn">Delete</button>
+
             </div>
-            <div class="card">
+            <div class="card" data-pages="320" data-language="English" data-status="available" data-category="novel"
+                data-borrowed="500"
+                data-desc="A shepherd travels seeking treasure, only to find the journey matters more.">
                 <img src="alchemist.png" alt="The Alchemist book">
                 <h3> The Alchemist</h3>
                 <p class="status available">Available</p>
                 <p> Author : Paulo Coelho</p>
                 <p>category : Novel</p>
-                <p>Discription: A shepherd travels seeking treasure, only to find the journey matters more. </p>
 
-                <br>
-                <button>View details</button>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button class="edit-btn">Edit details</button>
+                <button class="delete-btn">Delete</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
+            <div class="card" data-pages="220" data-language="English" data-status="available" data-category="Self-help"
+                data-borrowed="500" data-desc="An inspiring book that encourages young people to challenge themselves and take responsibility to
+                    grow and succeed">
+
+                <img src="do hard things.png" alt="Do hard Things book">
+                <br>
+                <br>
+                <br>
+                <h3> Do hard things </h3>
                 <p class="status available">Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
-                <br>
-                <button>View details</button>
-                <button>Edit</button>
-                <button>Delete</button>
+                <p> Author :Alex Harries </p>
+                <p>category : self-help</p>
+
+
+                <button class="edit-btn">Edit details</button>
+                <button class="delete-btn">Delete</button>
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+            <div class="card" data-pages="420" data-language="English" data-status="available" data-category="Fiction"
+                data-borrowed="500"
+                data-desc="A short novel about an old fisherman’s struggle with a giant fish, symbolizing perseverance and determination">
+                <img src="new.png" alt="the old man and sea">
                 <br>
-                <button>View details</button>
-                <button>Edit</button>
-                <button>Delete</button>
+                <br>
+                <br>
+                <br>
+                <h3> The old man and the sea</h3>
+                <p class="status available">Available</p>
+
+                <p> Author : Ernest Hemingway</p>
+                <p>category : Fiction</p>
+
+                <button class="edit-btn">Edit details</button>
+                <button class="delete-btn">Delete</button>
             </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+
+                    <span id="closeBtn">&times;</span>
+
+                    <input id="modalTitle">
+
+                    <input id="modalAuthor">
+                    <input id="modalCategory">
+                    <textarea id="modalDesc"></textarea>
+
+                    <input id="modalPages">
+                    <input id="modalLang">
+                    <input id="modalStatus">
+                    <input id="modalborrow">
+
+                    <button id="saveBtn">Save</button>
+                </div>
+            </div>
+        </div>
+
     </section>
+
+    </div>
     <footer>
         <div class="footer-container">
 
@@ -129,6 +167,7 @@
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
+    <script src="services_Admin.js"></script>
 
 
 </body>

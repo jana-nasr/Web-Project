@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <title>borrowed page </title>
+    <title>Services / products page </title>
     <link rel="stylesheet" href="borrowed.css">
+
 </head>
+
 
 <body>
     <header>
@@ -25,74 +27,110 @@
     <div class="search-box">
         <form>
             <label>Search :</label>
-            <input type="text" placeholder="Search by Title, Author or Category" name="Search" autofocus>
+            <input type="text" id="searchInput" placeholder="Search by Title, Author or Category" name="Search"
+                autofocus>
 
             <br>
         </form>
     </div>
-    <section>
+
+
+    <section class="all">
         <div class="books">
-            <div class="card">
+
+
+            <div class="card" data-pages="520" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Romance"
+                data-desc=" A classic romance between Elizabeth Bennet and Mr. Darcy exploring love and class.">
                 <img src="pride.png" alt="Pride and Prejudice book">
                 <h3>Pride and Prejudice</h3>
-                <p class="status not-available">Not Available</p>
+                <p class="status not-available">Borrowed</p>
                 <p> Author : Jane Austen</p>
                 <p>category : Romance</p>
-                <p>Discription: A classic romance between Elizabeth Bennet and Mr. Darcy exploring love and class.</p>
 
-                <br>
-                <button>View details</button>
-                <button disabled> remove</button>
+                <button class="view-btn">View details</button>
+                <button class="remove-btn">Remove</button>
             </div>
 
 
-            <div class="card">
+
+            <div class="card" data-pages="120" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Fantasy"
+                data-desc="A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.">
+                <img src="hobbit.png" alt="Hobbit">
+                <h3> Hobbit</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : J.R.R Tolkien</p>
+                <p>category : Fantasy</p>
+
+                <button class="view-btn">View details</button>
+                <button class="remove-btn">Remove</button>
+
+            </div>
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Fiction"
+                data-desc="A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.">
                 <img src="creative history.png" alt="the great gatsby">
                 <h3> The Great Gatsby</h3>
-                <p class="status not-available">Not Available</p>
+                <p class="status not-available">Borrowed</p>
                 <p> Author : F. Scott Fitzgerald</p>
                 <p>category : Fiction</p>
-                <p>Discription: A story about a wealthy man, Jay Gatsby, who hopes to reunite with his lost love Daisy.
-                </p>
 
-                <br>
-                <button>View details</button>
-                <button disabled> remove</button>
+                <button class="view-btn">View details</button>
+                <button class="remove-btn">Remove</button>
+
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Self-help" data-desc="A practical guide on how to overcome feeling stuck and make progress in your personal and
+                    professional life">
+                <img src="anatomy.png" alt="Anatony of a breakthrough">
                 <br>
-                <button>View details</button>
-                <button disabled> remove</button>
-            </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
                 <br>
-                <button>View details</button>
-                <button disabled> remove</button>
+                <h3> Anatony of a breakthrough</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : Adam Alter</p>
+                <p>category : self-help</p>
+
+
+                <button class="view-btn">View details</button>
+                <button class="remove-btn">Remove</button>
+
             </div>
-            <div class="card">
-                <img src="hobbit.png" alt="Hobbit">
-                <h3> Hobbit</h3>
-                <p class="status not-available">Not Available</p>
-                <p> Author : J.R.R Tolkien</p>
-                <p>category : Fantasy</p>
-                <p>A hobbit joins dwarves on an adventure to reclaim their kingdom from a dragon.</p>
+
+            <div class="card" data-pages="320" data-language="English" data-status="not-available" data-borrowed="500"
+                data-category="Self-help" data-desc="A step-by-step guide to achieving your goals by building confidence and using the power of positive
+                    thinking and action">
+                <img src="man.png" alt="Manifest">
                 <br>
-                <button>View details</button>
-                <button disabled> remove</button>
+                <br>
+                <br>
+                <br>
+                <h3> Manifest</h3>
+                <p class="status not-available">Borrowed</p>
+                <p> Author : Roxie Nafousi</p>
+                <p>category : self-help</p>
+
+                <button class="view-btn">View details</button>
+                <button class="remove-btn">Remove</button>
+
             </div>
-        </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span id="closeBtn">&times;</span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalAuthor"></p>
+                    <p id="modalCategory"></p>
+                    <p id="modalDesc"></p>
+                    <p id="modalPages"></p>
+                    <p id="modalLang"></p>
+                    <p id="modalStatus"></p>
+                    <p id="modalborrow"></p>
+                </div>
+
+
+            </div>
+
     </section>
 
     <footer>
@@ -126,8 +164,7 @@
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
+    <script src="borrowed.js"></script>
 </body>
-
-
 
 </html>
