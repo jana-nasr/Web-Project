@@ -14,7 +14,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: var(--navy);
-    background-color: var(--beige);
+    background-color: antiquewhite; 
 }
 
 .navbar {
