@@ -41,3 +41,19 @@ container.addEventListener("click", function (e) {
         renderBooks();
     }
 });
+const searchinput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+
+searchinput.addEventListener("input", function () {
+    const value = searchinput.value.toLowerCase();
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+
+        if (text.includes(value)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
