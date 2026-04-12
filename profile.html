@@ -31,7 +31,7 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <p class="stat-label">Books Borrowed</p>
-                    <p class="stat-value">3</p>
+                    <p class="stat-value">0</p>
                 </div>
                 <div class ="stat-item">
                     <p class="stat-label">Due This Week</p>
@@ -55,24 +55,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Pride and Prejudice</td>
-                        <td>Jane Austen</td>
-                        <td>Due in 2 weeks</td>
-                        <td><button class="btn-action">Return</button></td>
-                    </tr>
-                    <tr>
-                        <td>The Hobbit</td>
-                        <td>J.R.R Tolkien</td>
-                        <td>Due in 3 weeks</td>
-                        <td><button class="btn-action">Return</button></td>
-                    </tr>
-                    <tr>
-                        <td>The Great Gatsby</td>
-                        <td>F. Scott Fitzgerald</td>
-                        <td>Due in 1 month</td>
-                        <td><button class="btn-action">Return</button></td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -91,11 +73,11 @@
 
             <div class="card">
                 <h2>Addresses</h2>
-                <button class="btn-add"> Add New Address</button>
-                <div class="adress-box">
-                        <h3>Default address</h3>
-                        <p>Name<br>Country</p>
-                    <div class="adress-actions">
+                <button class="btn-add">Add New Address</button>
+                <div class="address-box">
+                    <h3>Default address</h3>
+                    <p id="userAddress">No address saved yet</p>
+                    <div class="address-actions">
                         <button class="btn-edit">Edit</button>
                         <button class="btn-delete">Delete</button>
                     </div>
@@ -128,14 +110,18 @@
 
             <div class="footer-col">
                 <h3>Categories</h3>
-                <a href="#">Programming</a>
+                 <a href="#">Fantasy</a>
                 <a href="#">Novels</a>
-                <a href="#">Science</a>
+                <a href="#">Classic</a>
                 <a href="#">History</a>
+                <a href="#">Biography</a>
             </div>
         </div>
         <p class="footer-bottom">
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
 </body>

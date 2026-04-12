@@ -4,116 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <title>The Readers</title>
-    
+    <link rel="stylesheet" href="Home.css">
+
 </head>
 
 <body>
     <header>
-    <nav>
-        <img src="logo.png" alt="Logo" class="logo" width="100" height="100">&nbsp&nbsp
-        <a href="admin_profile.html">Profile</a>&nbsp&nbsp
-        <a href="Home_Admin.html">Home</a>&nbsp&nbsp
-        <a href="About Us_Admin.html">About Us</a>&nbsp&nbsp
-        <a href="services_Admin.html">Books</a>&nbsp&nbsp
-        <a href="details.html">Add Book</a>&nbsp&nbsp
-        <a href="admin_login.html">Login |</a>
-        <a href="signup.html">Sign Up</a>
-    </nav>
-    <hr>
+        <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="admin_profile.html" class="active">Profile</a></li>
+                <li><a href="Home_Admin.html" class="active">Home</a></li>
+                <li><a href="About Us_Admin.html" class="active">About Us</a></li>
+                <li><a href="services_Admin.html" class="active">Books</a></li>
+                <li><a href="details_Admin.html" class="active">Add Book</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+
     </header>
     <main>
 
-    <section class="hero">
-        <h1>Welcome to The Readers</h1>
-        <p>Discover a world of books and connect with fellow book lovers.</p>
-        <a href="services_Admin.html" class="btn">Explore Books</a>
-    </section>
+        <section class="hero">
+            <div class="content">
+                <h1>Welcome <br> to The Readers</h1>
+                <p> Dive into a world of endless stories.
+                    <br> Share your favorites, discover new gems <br>
+                    and connect with fellow book lovers today.
+                </p>
+                <a href="services_Admin.html" class="btn">Explore Books</a>
+            </div>
+            <div class="image"></div>
+        </section>
 
-    <section class="about">
-        <h2>About Us</h2>
-        <p>
-            Our Online Library Management System helps users explore a wide
-            collection of books. Users can browse different categories,
-            discover new titles, and easily find the books they want.
-        </p>
+        <section class="about">
+            <h2>About Us</h2>
+            <p>
+                Our Online Library Management System helps users explore a wide
+                collection of books. Users can browse different categories,
+                discover new titles, and easily find the books they want.
+                <br>
+                The platform is designed to make reading more accessible and
+                organized for everyone.
+            </p>
+        </section>
 
-        <p>
-            The platform is designed to make reading more accessible and
-            organized for everyone.
-        </p>
-    </section>
+        <section class="categ">
+            <h2>Categories</h2>
+            <div class="buttons">
+                <button>Fantasy</button>
+                <button>Novels</button>
+                <button>Classic</button>
+                <button>History</button>
+                <button>Biography</button>
+            </div>
+        </section>
+        <section class="books">
+            <div class="books-header">
+                <h2>Featured Books</h2>
+                <div class="more-card">
+                    <a href="services_Admin.html">view all →</a>
+                </div>
+            </div>
+            <div class="book-cards">
+                <div class="book-card">
+                    <img src="pride.png" alt="Pride & Prejudice" width="=200px" height="200px">
 
-    <section>
-        <h2>Categories</h2>
-        <button>Programming</button>
-        <button>Novels</button>
-        <button>Science</button>
-        <button>History</button>
-    </section>
-
-    <section>
-        <h2>Featured Books</h2>
-        <table>
-            <tr>
-                <td>
-                    <img src="Alchm.jpeg" alt="The Alchemist book" width="=200px" height="200px">
-
-                    <h3> The Alchemist</h3>
-                    <p> Author : Paulo Coelho</p>
+                    <h3> Pride & Prejudice</h3>
+                    <p> Author : Jane Austen</p>
                     <p>category : Novel</p>
-                    <p>Discription: A shepherd travels seeking treasure, only to find the journey matters more. </p>
-                    <span>-----Available------</span>
-                    <br>
-                    <button>View details</button>
-                    <button>Delete Book</button>
-                </td>
-                <td>
-                    <img src="Harry.jpeg" alt="Harry potter book" width="=200px" height="200px">
+
+
+                    <div class="buttons">
+                        <button onclick="editBook(this)">Edit</button>
+                        <button onclick="deleteBook(this)">Delete</button>
+                    </div>
+                </div>
+                <div class="book-card">
+
+
+                    <img src="harry potter.png" alt="Harry potter book" width="=200px" height="200px">
 
                     <h3> Harry potter</h3>
                     <p> Author : JK Rowling</p>
                     <p>category : Fantasy</p>
-                    <p>Discription: A boy discovers he's a wizard and attends Hogwarts to battle the dark lord
-                        Voldemort.
-                    </p>
-                    <span>-----Available------</span>
-                    <br>
-                    <button>View details</button>
-                    <button>Delete Book</button>
-                </td>
-                <td>
-                    <img src="Atom.jpeg" alt="Atomic Habits book" width="=200px" height="200px">
+
+
+                    <div class="buttons">
+                        <button onclick="editBook(this)">Edit</button>
+                        <button onclick="deleteBook(this)">Delete</button>
+                    </div>
+                </div>
+
+                <div class="book-card">
+
+
+                    <img src="new.png" alt="Old Man & the Sea" width="=200px" height="200px">
+
+                    <h3> Old Man & the Sea</h3>
+                    <p> Author : Ernest Hemingway</p>
+                    <p>category : Classic</p>
+
+
+                    <div class="buttons">
+                        <button onclick="editBook(this)">Edit</button>
+                        <button onclick="deleteBook(this)">Delete</button>
+                    </div>
+                </div>
+
+
+
+                <div class="book-card">
+                    <img src="atomic.png" alt="Atomic Habits book" width="=200px" height="200px">
 
                     <h3> Atomic Habits</h3>
                     <p> Author : James Clear</p>
                     <p>category : Self Development</p>
-                    <p>Discription: A guide to building small habits that lead to remarkable personal changes. </p>
-                    <span>-----Available------</span>
-                    <br>
-                    <button>View details</button>
-                    <button>Delete Book</button>
-                </td>
-                <td>
-                    <a href="services_Admin.html"><button>More</button></a>
-                </td>
-            </tr>
-        </table>
-    </section>
-    <hr>
-    </main>
-    <footer>
-        <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <p>
-            Quick Links
-            <br>
-            <a href="Home_Admin.html">Home</a> <br>
-            <a href="About Us_Admin.html">About</a> <br>
-            <a href="services_Admin.html">Books</a> <br>
-            <a href="contact_admin.html">Contact Us</a> <br>
-        </p>
-        <p>Email: info@onlinelibrary.com</p>
-    </footer>
 
+                    <div class="buttons">
+                        <button onclick="editBook(this)">Edit</button>
+                        <button onclick="deleteBook(this)">Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <hr>
+    </main>
+    <div id="popup" class="popup">Book borrowed </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+
+            <h2>Edit Book</h2>
+
+            <input id="edit-title" placeholder="Title"><br><br>
+            <input id="edit-author" placeholder="Author"><br><br>
+            <input id="edit-category" placeholder="Category"><br><br>
+
+            <button class="save-btn" onclick="saveEdit()">Save</button>
+        </div>
+    </div>
+    <div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <p>Are you sure you want to delete this book?</p>
+
+    <div class="modal-buttons">
+      <button onclick="confirmDelete()">Yes</button>
+      <button onclick="closeDeleteModal()">No</button>
+    </div>
+  </div>
+</div>
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home_Admin.html">Home</a>
+                <a href="About Us_Admin.html">About</a>
+                <a href="services_Admin.html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
+        </p>
+    </footer>
+    <script src="home.js"></script>
 </body>
 
 </html>

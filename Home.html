@@ -52,67 +52,128 @@
         <section class="categ">
             <h2>Categories</h2>
             <div class="buttons">
-                <button>Programming</button>
-                <button>Novels</button>
-                <button>Science</button>
-                <button>History</button>
+                <button>Fantasy</button>
+                    <button>Novels</button>
+                    <button>Classic</button>
+                    <button>History</button>
+                    <button>Biography</button>
             </div>
         </section>
 
         <section class="books">
-            <h2>Featured Books</h2>
+            <div class="books-header">
+                <h2>Featured Books</h2>
+                <div class="more-card">
+                    <a href="servicess (2).html">view all →</a>
+                </div>
+            </div>
             <div class="book-cards">
                 <div class="book-card">
-                    <img src="Alchm.jpeg" alt="The Alchemist book" width="=200px" height="200px">
+                    <img src="pride.png" alt="Pride & Prejudice" width="=200px" height="200px">
 
-                    <h3> The Alchemist</h3>
-                    <p> Author : Paulo Coelho</p>
+                    <h3> Pride & Prejudice</h3>
+                    <p> Author : Jane Austen</p>
                     <p>category : Novel</p>
-                    <p>Discription: A shepherd travels seeking treasure,<br> only to find the journey matters more. </p>
-                    <span>-----Available------</span>
+
+
                     <div class="buttons">
-                        <button>View details</button>
-                        <button>Borrow</button>
+                        <button onclick="viewDetails('Pride & Prejudice','Jane Austen','Novel',
+                        'A story about the turbulent relationship between Elizabeth Bennet and Fitzwilliam Darcy.',
+                        true,
+                        100
+                        )">View details</button>
+                        <button onclick="borrowBook('Pride & Prejudice', this)">Borrow</button>
                     </div>
                 </div>
                 <div class="book-card">
 
 
-                    <img src="Harry.jpeg" alt="Harry potter book" width="=200px" height="200px">
+                    <img src="harry potter.png" alt="Harry potter book" width="=200px" height="200px">
 
                     <h3> Harry potter</h3>
                     <p> Author : JK Rowling</p>
                     <p>category : Fantasy</p>
-                    <p>Discription: A boy discovers he's a wizard and<br> attends Hogwarts to battle the dark lord
-                        Voldemort.
-                    </p>
-                    <span>-----Available------</span>
+
+
                     <div class="buttons">
-                        <button>View details</button>
-                        <button>Borrow</button>
+                        <button onclick="viewDetails('Harry Potter','JK Rowling','Fantasy',
+                        'A young boy discovers he is a wizard and attends a magical school.',
+                        true,
+                        150
+                        )">View details</button>
+                        <button onclick="borrowBook('Harry Potter', this)">Borrow</button>
                     </div>
                 </div>
+
                 <div class="book-card">
-                    <img src="Atom.jpeg" alt="Atomic Habits book" width="=200px" height="200px">
+
+
+                    <img src="new.png" alt="Old Man & the Sea" width="=200px" height="200px">
+
+                    <h3> Old Man & the Sea</h3>
+                    <p> Author : Ernest Hemingway</p>
+                    <p>category : Classic</p>
+
+
+                    <div class="buttons">
+                        <button onclick="viewDetails('Old Man & the Sea',
+                        'Ernest Hemingway','Classic',
+                        'A story about an old fisherman and his struggle with a giant marlin.',
+                        false,
+                        75
+                        )">View details</button>
+                        <button onclick="borrowBook('Old Man & the Sea', this)">Borrow</button>
+                    </div>
+                </div>
+
+
+
+                <div class="book-card">
+                    <img src="atomic.png" alt="Atomic Habits book" width="=200px" height="200px">
 
                     <h3> Atomic Habits</h3>
                     <p> Author : James Clear</p>
                     <p>category : Self Development</p>
-                    <p>Discription: A guide to building small habits <br>that lead to remarkable personal changes. </p>
-                    <span>-----Available------</span>
+
                     <div class="buttons">
-                        <button>View details</button>
-                        <button>Borrow</button>
+                        <button onclick="viewDetails('Atomic Habits',
+                        'James Clear',
+                        'Self Development',
+                        'A book about building good habits and breaking bad ones.',
+                        true,
+                        120
+  
+                        )">View details</button>
+                        <button onclick="borrowBook('Atomic Habits', this)">Borrow</button>
                     </div>
                 </div>
-                <div class="more-card">
 
-                    <a href="servicess (2).html"><button>More</button></a>
-                </div>
             </div>
         </section>
         <hr>
     </main>
+
+
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2 id="modal-title"></h2>
+            <p id="modal-author"></p>
+            <p id="modal-category"></p>
+            <p id="modal-description"></p>
+            <p>
+                Status:
+                <span id="status-circle"></span>
+                <span id="status-text"></span>
+            </p>
+
+            <p id="borrow-count"></p>
+
+        </div>
+    </div>
+    <div id="popup" class="popup"></div>
+
     <footer>
         <div class="footer-container">
 
@@ -134,17 +195,18 @@
 
             <div class="footer-col">
                 <h3>Categories</h3>
-                <a href="#">Programming</a>
+                <a href="#">Fantasy</a>
                 <a href="#">Novels</a>
-                <a href="#">Science</a>
+                <a href="#">Classic</a>
                 <a href="#">History</a>
+                <a href="#">Biography</a>
             </div>
         </div>
         <p class="footer-bottom">
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
-
+    <script src="home.js"></script>
 </body>
 
 </html>
