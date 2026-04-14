@@ -168,9 +168,9 @@ button {
     font-size: 0.85rem;
 }
 .available {  background-color: #d4edda; color: #155724; }
-.btn-edit { background-color: var(--brown); color: white; font-weight: bold; }
+.btn-edit { background-color: var(--brown); color: white; }
 .btn-edit:hover { background-color: var(--green); }
-.btn-delete{ background: #8b0000; color: white; border: none; padding: 5px 12px; border-radius: 10px; cursor: pointer; }
+.btn-delete{ background: #8b0000; color: white;}
 .btn-delete:hover { background-color: #a52a2a; }
 
 .admin-card.profile {

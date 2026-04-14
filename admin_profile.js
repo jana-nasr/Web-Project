@@ -241,7 +241,19 @@ function setupAdminButtons() {
     var addBtn = document.querySelector(".quick-actions .btn-add");
     if (addBtn) {
         addBtn.onclick = function() {
-            addNewBook();
+            window.location.href = "details.html";
+        };
+    }
+    var editBtn = document.querySelector(".quick-actions .btn-edit");
+    if (editBtn) {
+        editBtn.onclick = function() {
+            window.location.href = "services_Admin.html";
+        };
+    }
+    var deleteBtn = document.querySelector(".quick-actions .btn-delete");
+    if (deleteBtn) {
+        deleteBtn.onclick = function() {
+            window.location.href = "services_Admin.html";
         };
     }
 }
