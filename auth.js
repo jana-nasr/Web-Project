@@ -18,7 +18,7 @@ window.onload = function() {
             }
             
             if (user) {
-                sessionStorage.setItem("currentUser", JSON.stringify(user));
+                localStorage.setItem("userEmail", user.email);
                 alert("Welcome " + user.username);
                 
                 if (user.isAdmin) {
