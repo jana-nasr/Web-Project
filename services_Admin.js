@@ -67,8 +67,7 @@ document.querySelectorAll(".edit-btn").forEach(btn => {
         document.getElementById("modalLang").value =
             currentCard.dataset.language || "language: ";
 
-        document.getElementById("modalStatus").value =
-            currentCard.dataset.status || "statues: ";
+
 
         document.getElementById("modalborrow").value =
             currentCard.dataset.borrowed || "borrowed: ";
