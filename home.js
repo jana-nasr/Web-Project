@@ -1,15 +1,16 @@
 
-let favorites = [];
 let currentBook = "";
 let currentCard = null;
 let selectedCard = null;
 
-function viewDetails(title, author, category, description, available, count) {
+function viewDetails(title, author, category, description, pages, language, available, count) {
     currentBook = title;
     document.getElementById("modal-title").innerText = title;
     document.getElementById("modal-author").innerText = "Author: " + author;
     document.getElementById("modal-category").innerText = "Category: " + category;
     document.getElementById("modal-description").innerText = description;
+    document.getElementById("modal-pages").innerText = "Pages: " + pages;
+    document.getElementById("modal-language").innerText = "Language: " + language;
     let circle = document.getElementById("status-circle");
     let text = document.getElementById("status-text");
 
@@ -21,7 +22,6 @@ function viewDetails(title, author, category, description, available, count) {
         text.innerText = "Not Available";
     }
 
-    // borrow count
     document.getElementById("borrow-count").innerText =
         "Borrowed: " + count + " times";
 
@@ -48,7 +48,7 @@ function borrowBook(bookName, btn) {
     showPopup(bookName + " Borrowed Successfully");
 
     btn.innerText = "Borrowed";
-    btn.style.backgroundColor = "#00192f";
+    btn.style.backgroundColor = "grey";
     btn.disabled = true;
 }
 
@@ -59,7 +59,6 @@ function editBook(btn) {
     let title = currentCard.querySelector("h3").innerText;
     let author = currentCard.querySelector("p:nth-of-type(1)").innerText.replace("Author : ", "");
     let category = currentCard.querySelector("p:nth-of-type(2)").innerText.replace("category : ", "");
-
     document.getElementById("edit-title").value = title;
     document.getElementById("edit-author").value = author;
     document.getElementById("edit-category").value = category;
