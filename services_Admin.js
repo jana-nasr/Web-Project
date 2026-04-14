@@ -101,8 +101,7 @@ saveBtn.onclick = () => {
     currentCard.dataset.language =
         document.getElementById("modalLang").value;
 
-    currentCard.dataset.status =
-        document.getElementById("modalStatus").value;
+
 
     currentCard.dataset.borrowed =
         document.getElementById("modalborrow").value;
