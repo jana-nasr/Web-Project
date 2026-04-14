@@ -182,33 +182,31 @@ window.onload = async function() {
     
     // Setup buttons
     setupAddressButtons(user);
+}
     
-    // Borrowed books
-    var borrowedIds = user.borrowedBooks || [];
-    var statValue = document.querySelector(".stat-value");
-    if (statValue) {
-        statValue.innerHTML = borrowedIds.length;
+    // Borrowed books are handled in borrowed.js to keep things organized
+var borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+var statValue = document.querySelector(".stat-value");
+if (statValue) {
+    statValue.innerHTML = borrowedBooks.length;
+}
+
+var tbody = document.querySelector(".book-table tbody");
+if (tbody) {
+    tbody.innerHTML = "";
+    if (borrowedBooks.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center">No books borrowed yet</td></tr>';
+    } else {
+        borrowedBooks.forEach(function(book, index) {
+            var row = tbody.insertRow();
+            row.insertCell(0).innerHTML = book.title;
+            row.insertCell(1).innerHTML = book.author;
+            row.insertCell(2).innerHTML = "Borrowed";
+            row.insertCell(3).innerHTML = `<button class="btn-action" onclick="returnBook('${book.title}')">Return</button>`;
+        });
     }
-    
-    var tbody = document.querySelector(".book-table tbody");
-    if (tbody) {
-        tbody.innerHTML = "";
-        if (borrowedIds.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center">No books borrowed yet</td></tr>';
-        } else {
-            for (var i = 0; i < borrowedIds.length; i++) {
-                var book = getBookById(borrowedIds[i]);
-                if (book) {
-                    var row = tbody.insertRow();
-                    row.insertCell(0).innerHTML = book.name;
-                    row.insertCell(1).innerHTML = book.author;
-                    row.insertCell(2).innerHTML = "Borrowed";
-                    row.insertCell(3).innerHTML = '<button class="btn-action" onclick="returnBook(' + book.id + ')">Return</button>';
-                }
-            }
-        }
-    }
-};
+}
 
 // ===== ADDRESS BUTTONS =====
 
@@ -259,10 +257,16 @@ async function setupAddressButtons(user) {
 
 // ===== RETURN BOOK =====
 
-async function returnBook(bookId) {
-    var result = await showConfirm("Return this book?");
+async function returnBook(bookTitle) {
+    var result = await showConfirm("Are you sure you want to return this book?");
     if (result) {
-        await showAlert("Book returned!", "success");
+        let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+        
+        borrowedBooks = borrowedBooks.filter(book => book.title !== bookTitle);
+        
+        localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+        
+        await showAlert("Book returned successfully!", "success");
         location.reload();
     }
 }

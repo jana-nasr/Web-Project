@@ -8,10 +8,12 @@
         function checkAdmin(event) {
             // Get the typed email
             var emailValue = document.getElementById('email').value.trim().toLowerCase();
+            localStorage.setItem('userEmail', emailValue); // Store the email in localStorage for later use
             
             // Check if it's the admin
             if (emailValue === 'admin@onlinelibrary.com') {
                 event.preventDefault(); // Stop normal form submit
+                localStorage.setItem('userEmail', emailValue); // Store admin email in localStorage
                 window.location.href = 'Home_Admin.html'; // Send to Admin page
                 return false; 
             }
