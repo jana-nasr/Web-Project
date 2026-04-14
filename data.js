@@ -1,6 +1,3 @@
-// data.js - Storage for all library data
-// Based on Lecture Page 51-53 (Objects)
-
 // ===== BOOKS DATA =====
 var books = [
     {
@@ -91,11 +88,7 @@ var users = [
 ];
 
 // ===== CURRENT LOGGED IN USER (Session) =====
-// Based on Lecture Page 41-42 (Global Variables)
 var currentUser = null;
-
-// ===== HELPER FUNCTIONS =====
-// Based on Lecture Page 15 (Functions)
 
 // Get book by ID
 function getBookById(bookId) {
@@ -117,7 +110,7 @@ function getUserByUsername(username) {
     return null;
 }
 
-// Save data to localStorage (so data persists after page refresh)
+// Save data to localStorage
 function saveData() {
     localStorage.setItem("books", JSON.stringify(books));
     localStorage.setItem("users", JSON.stringify(users));
