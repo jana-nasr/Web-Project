@@ -77,7 +77,7 @@ function filterBooks(type) {
 document.querySelectorAll(".borrow-btn").forEach(button => {
     button.addEventListener("click", function () {
 
-        const card = this.closest(".card");
+        const card = this.parentElement;
 
         const title = card.querySelector("h3").innerText;
 
@@ -114,10 +114,3 @@ document.querySelectorAll(".borrow-btn").forEach(button => {
 
     });
 });
-function borrowBook(bookName, btn) {
-    showPopup(bookName + " Borrowed Successfully");
-
-    btn.innerText = "Borrowed";
-    btn.style.backgroundColor = "#00192f";
-    btn.disabled = true;
-}

@@ -31,7 +31,7 @@ renderBooks();
 
 container.addEventListener("click", function (e) {
     if (e.target.classList.contains("remove-btn")) {
-        const card = e.target.closest(".card");
+        const card = e.target.parentElement;
         const title = card.dataset.title;
 
         borrowedBooks = borrowedBooks.filter(book => book.title !== title);

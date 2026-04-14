@@ -152,6 +152,7 @@ ul li a:hover {
     border: none;
     padding: 8px 12px;
     border-radius: 20px;
+    cursor: pointer;
 
 }
 
@@ -233,6 +234,11 @@ footer {
     font-size: 20px;
 }
 
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .filters {
     text-align: center;
     margin: 20px 0;
@@ -258,8 +264,4 @@ footer {
 .filters button.active {
     background-color: #5a3e2b;
     color: white;
-}
-
-.borrow-btn.borrowed {
-    background-color: red !important;
 }

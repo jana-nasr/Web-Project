@@ -75,7 +75,7 @@ ul li a:hover {
 }
 
 .hero .content {
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -97,12 +97,10 @@ ul li a:hover {
 }
 
 .hero .content .btn {
-  padding: 10px 20px;
   background-color: #A26D5D;
   color: white;
   text-decoration: none;
   border-radius: 20px;
-  margin-top: 30px;
   padding: 14px 16px;
 
 }
@@ -115,7 +113,6 @@ ul li a:hover {
 
   width: 100%;
   height: 400px;
-  display: flex;
   gap: 50px;
   background: linear-gradient(to right, #1b3644, #3e636e);
   color: white;
@@ -124,7 +121,7 @@ ul li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  box-sizing: border-box;
+
 }
 
 .about h2 {
@@ -148,7 +145,6 @@ ul li a:hover {
 .categ h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  text-align: left;
   padding-top: 20px;
   color: #00192F;
   padding-left: 20px;
@@ -183,13 +179,28 @@ ul li a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+   width: 100%;
+}
+.books-header h2 {
+  margin: 10px 0;
 }
 
 .books h2 {
   font-size: 36px;
-  margin-bottom: 30px;
   color: #DBDAD5;
-  text-align: left;
+}
+
+
+.more-card a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+
+
+
+}
+.more-card a:hover {
+  text-decoration: underline;
 }
 
 .book-cards {
@@ -241,37 +252,12 @@ ul li a:hover {
   border: none;
   padding: 8px 12px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .book-card .buttons button:hover {
   background-color: #9AB5AE;
 }
-
-.books-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.books-header h2 {
-  margin: 0;
-}
-
-.more-card {
-  margin-left: auto;
-  text-align: right;
-
-}
-
-.more-card a {
-  color: #A26D5D;
-  font-size: 20px;
-  text-decoration: none;
-
-
-}
-
 
 
 footer {
@@ -333,12 +319,10 @@ footer {
   width: 400px;
   border-radius: 15px;
   text-align: center;
-  position: relative;
-
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .close {
@@ -390,14 +374,11 @@ footer {
   text-align: center;
   padding: 15px 20px;
   border-radius: 12px;
-
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-
-  z-index: 3000;
-
+   z-index: 3000;
   opacity: 0;
   transition: 0.4s ease;
 }

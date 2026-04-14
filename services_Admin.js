@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".card");
 
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
-const editBtn = document.getElementById("editToggle");
+
 const saveBtn = document.getElementById("saveBtn");
 
 searchinput.addEventListener("input", function () {
@@ -21,25 +21,13 @@ searchinput.addEventListener("input", function () {
 });
 
 const deleteButtons = document.querySelectorAll(".delete-btn");
-
 deleteButtons.forEach(btn => {
     btn.addEventListener("click", function () {
         const card = this.parentElement;
 
-        const bookName = card.querySelector("h3").innerText;
-
-
-
-
         card.remove();
-
     });
 });
-
-
-
-
-
 
 
 let currentCard = null;
@@ -75,18 +63,16 @@ document.querySelectorAll(".edit-btn").forEach(btn => {
         modal.style.display = "block";
     });
 });
+
+
 saveBtn.onclick = () => {
-
     if (!currentCard) return;
-
-
     currentCard.querySelector("h3").innerText =
-        document.getElementById("modalTitle").value;
 
+        document.getElementById("modalTitle").value;
 
     currentCard.querySelectorAll("p")[1].innerText =
         "Author : " + document.getElementById("modalAuthor").value;
-
 
     currentCard.querySelectorAll("p")[2].innerText =
         "category : " + document.getElementById("modalCategory").value;
