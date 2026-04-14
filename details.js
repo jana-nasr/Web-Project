@@ -176,4 +176,4 @@ form.addEventListener("submit", (event) => {
 resetPreview();
 updatePreview();
 renderRecentBooks();
-localStorage.clear();
+//localStorage.clear();
