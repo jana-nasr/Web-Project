@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 70px;
+  background-color: #00192F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000
+}
+
+ul {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 12px;
+  background-color: #00192F;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+ul li a {
+  border-radius: 20px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li.login {
+  margin-left: auto;
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+ul li.signup {
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+
+ul li a:hover {
+  border-radius: 20px;
+  background-color: #9AB5AE;
+}
+
+
+
+.hero {
+  width: 100%;
+  height: 800px;
+  background-image: url("background.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-color: #DBDAD5;
+}
+
+.hero .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+  padding-left: 20px;
+}
+
+.hero .content h1 {
+  font-size: 60px;
+  margin-top: 100px;
+  color: #4C6665;
+}
+
+.hero .content p {
+  font-size: 30px;
+  color: grey;
+}
+
+.hero .content .btn {
+  background-color: #A26D5D;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 14px 16px;
+
+}
+
+.hero .content .btn:hover {
+  background-color: #9AB5AE;
+}
+
+.about {
+
+  width: 100%;
+  height: 400px;
+  gap: 50px;
+  background: linear-gradient(to right, #1b3644, #3e636e);
+  color: white;
+  padding: 0px 0px 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.about h2 {
+  font-size: 50px;
+}
+
+.about p {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 50%;
+
+}
+
+.categ {
+  width: 100%;
+  height: 400px;
+  background-color: #DBDAD5;
+  gap: 10px;
+}
+
+.categ h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  color: #00192F;
+  padding-left: 20px;
+}
+
+.categ .buttons {
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+}
+
+.categ .buttons button {
+  width: 250px;
+  height: 200px;
+  font-size: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #4C6665;
+  color: white;
+}
+
+.categ .buttons button:hover {
+  background-color: #9AB5AE;
+}
+
+.books {
+  padding: 40px;
+  background-color: #1b3644;
+}
+
+.books-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   width: 100%;
+}
+.books-header h2 {
+  margin: 10px 0;
+}
+
+.books h2 {
+  font-size: 36px;
+  color: #DBDAD5;
+}
+
+
+.more-card a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+
+
+
+}
+.more-card a:hover {
+  text-decoration: underline;
+}
+
+.book-cards {
+
+  display: flex;
+  gap: 125px;
+  justify-content: left;
+
+}
+
+.book-card {
+  background-color: #DBDAD5;
+  width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.book-card img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.book-card h3 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.book-card p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
+}
+
+
+
+
+
+.book-card .buttons button {
+  background: #A26D5D;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.book-card .buttons button:hover {
+  background-color: #9AB5AE;
+}
+
+
+footer {
+  background-color: #DBDAD5;
+  color: #1b3644;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+}
+
+.footer-col a {
+  display: block;
+  color: #1b3644;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #DBDAD5;
+  padding: 30px;
+  width: 400px;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-buttons button:first-child {
+  background-color: #A26D5D;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #ccc;
+  color: black;
+}
+
+#status-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+.popup {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #A26D5D;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 12px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+   z-index: 3000;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.popup.show {
+  visibility: visible;
+  opacity: 1;
+  top: 40px;
+}
+
+#editModal input {
+  width: 80%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.save-btn {
+  background-color: #A26D5D;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-btn:hover {
+  background-color: #9AB5AE;
+}

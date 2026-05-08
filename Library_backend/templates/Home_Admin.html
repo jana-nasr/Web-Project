@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Readers</title>
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+
+<body>
+   
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src="{% static 'images/logo.png' %}" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="admin_profile.html" class="active">Profile</a></li>
+                <li><a href="Home_Admin.html" class="active">Home</a></li>
+                <li><a href="About Us_Admin.html" class="active">About Us</a></li>
+                <li><a href="services_Admin.html" class="active">Books</a></li>
+                <li><a href="details.html" class="active">Add Book</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+
+        <section class="hero">
+            <div class="content">
+                <h1>Welcome <br> to The Readers</h1>
+                <p> Dive into a world of endless stories.
+                    <br> Share your favorites, discover new gems <br>
+                    and connect with fellow book lovers today.
+                </p>
+                <a href="services_Admin.html" class="btn">Explore Books</a>
+            </div>
+            <div class="image"></div>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>
+                Our Online Library Management System helps users explore a wide
+                collection of books. Users can browse different categories,
+                discover new titles, and easily find the books they want.
+                <br>
+                The platform is designed to make reading more accessible and
+                organized for everyone.
+            </p>
+        </section>
+
+        <section class="categ">
+            <h2>Categories</h2>
+            <div class="buttons">
+                <button>Fantasy</button>
+                <button>Novels</button>
+                <button>Classic</button>
+                <button>History</button>
+                <button>Biography</button>
+            </div>
+        </section>
+        <section class="books">
+            <div class="books-header">
+                <h2>Featured Books</h2>
+                <div class="more-card">
+                    <a href="services_Admin.html">view all →</a>
+                </div>
+            </div>
+            <button onclick="openAddModal()" class="save-btn">
+                Add Book
+            </button>
+            <div class="book-cards">
+
+                {% for book in books %}
+            
+                <div class="book-card">
+            
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+            
+                    <h3>{{ book.title }}</h3>
+            
+                    <p>Author : {{ book.author }}</p>
+            
+                    <p>Category : {{ book.category }}</p>
+            
+                    <div class="buttons">
+            
+                        <button onclick="openEditModal(
+                            '{{ book.id }}',
+                            '{{ book.title }}',
+                            '{{ book.author }}',
+                            '{{ book.category }}',
+                            '{{ book.description }}'
+                        )">
+                            Edit
+                        </button>
+                        
+                        <button onclick="deleteBook('{{ book.id }}')">
+                            Delete
+                        </button>
+            
+                    </div>
+            
+                </div>
+            
+                {% endfor %}
+            
+            </div>
+        </section>
+        <hr>
+    </main>
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+    
+            <span class="close" onclick="closeEditModal()">&times;</span>
+    
+            <h2>Edit Book</h2>
+    
+            <form id="editForm" method="POST">
+    
+                {% csrf_token %}
+    
+                <input type="text" name="title" id="edit-title"><br><br>
+    
+                <input type="text" name="author" id="edit-author"><br><br>
+    
+                <input type="text" name="category" id="edit-category"><br><br>
+    
+                <textarea name="description" id="edit-description"></textarea><br><br>
+    
+                <button type="submit" class="save-btn">
+                    Save
+                </button>
+    
+            </form>
+    
+        </div>
+    
+    </div>
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+      
+          <span class="close" onclick="closeDeleteModal()">&times;</span>
+      
+          <h3>Are you sure you want to delete this book?</h3>
+      
+          <div class="modal-buttons">
+            <button onclick="confirmDelete()">Yes</button>
+            <button onclick="closeDeleteModal()">No</button>
+          </div>
+      
+        </div>
+      </div>
+
+
+    <div id="addModal" class="modal">
+
+        <div class="modal-content">
+    
+            <span class="close" onclick="closeAddModal()">&times;</span>
+    
+            <h2>Add Book</h2>
+    
+            <form method="POST"
+                  action="/add/"
+                  enctype="multipart/form-data">
+    
+                {% csrf_token %}
+    
+                <input type="text" name="title" placeholder="Title"><br><br>
+    
+                <input type="text" name="author" placeholder="Author"><br><br>
+    
+                <input type="text" name="category" placeholder="Category"><br><br>
+    
+                <textarea name="description" placeholder="Description"></textarea><br><br>
+    
+                <input type="file" name="image"><br><br>
+    
+                <button type="submit" class="save-btn">
+                    Add
+                </button>
+    
+            </form>
+    
+        </div>
+    
+    </div>
+
+    <div id="popup" class="popup">Book borrowed </div>
+    <!--
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+
+            <h2>Edit Book</h2>
+
+            <input id="edit-title" placeholder="Title"><br><br>
+            <input id="edit-author" placeholder="Author"><br><br>
+            <input id="edit-category" placeholder="Category"><br><br>
+
+            <button class="save-btn" onclick="saveEdit()">Save</button>
+        </div>
+    </div>
+    <div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <p>Are you sure you want to delete this book?</p>
+
+    <div class="modal-buttons">
+      <button onclick="confirmDelete()">Yes</button>
+      <button onclick="closeDeleteModal()">No</button>
+    </div>
+  </div>
+
+</div>
+-->
+<script src="{% static 'js/home.js' %}"></script>
+</body>
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home_Admin.html">Home</a>
+                <a href="About Us_Admin.html">About</a>
+                <a href="services_Admin.html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
+        </p>
+    </footer>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+
+</html>

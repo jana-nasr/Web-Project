@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <style>
+        /* Color Palette Applied:
+           Navy: #00192F | Brown: #A26D5D | Spruce: #4C6665 | Green: #9AB5AE | Beige: #DBDAD5 
+        */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: antiquewhite; /* Beige Background */
+            color: #00192F; /* Navy Text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Forces body to take full height of the screen */
+        }
+
+        .navbar {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 70px;
+  background-color: #00192F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000
+}
+
+ul {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 12px;
+  background-color: #00192F;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+ul li a {
+  border-radius: 20px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li.login {
+  margin-left: auto;
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+ul li.signup {
+  background-color: #A26D5D;
+  border-radius: 20px;
+
+}
+
+
+ul li a:hover {
+  border-radius: 20px;
+  background-color: #9AB5AE;
+}
+
+
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* Allows this section to grow and push the footer down */
+            padding: 40px 20px;
+        }
+
+        .contactForum {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            border-top: 5px solid #4C6665; /* Spruce accent */
+            border-radius: 6px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 20px rgba(0, 25, 47, 0.15); /* Soft Navy shadow */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .contactForum h1 {
+            margin-top: 0;
+            color: #00192F; /* Navy */
+            margin-bottom: 10px;
+        }
+
+        .contactForum p.subtitle {
+            color: #4C6665;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4C6665; /* Spruce */
+        }
+
+        .input-group input[type="text"], 
+        .input-group input[type="email"],
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #9AB5AE; /* Green */
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            resize: vertical; /* Allows the user to only resize the text area up and down */
+        }
+
+        .input-group input[type="text"]:focus, 
+        .input-group input[type="email"]:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #4C6665; /* Spruce */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #A26D5D; /* Brown */
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4C6665; /* Spruce */
+        }
+
+        .contactForum a {
+            color: #A26D5D; /* Brown */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contactForum a:hover {
+            text-decoration: underline;
+        }
+
+       footer {
+  background-color: #DBDAD5;
+  color: #1b3644;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+}
+
+.footer-col a {
+  display: block;
+  color: #1b3644;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+       <nav class="navbar">
+            <ul>
+                <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us (4).html" class="active">About Us</a></li>
+                <li><a href="servicess (2).html" class="active">Books</a></li>
+                <li><a href="borrowed.html" class="active">Borrowed Books</a></li>
+                <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+
+    <div class="contact-wrapper">
+        <div class="contactForum">
+            <h1>Contact Us</h1>
+            <p class="subtitle">If you are having trouble logging in or have any questions, please send us a message below.</p>
+
+            <form>
+                <div class="input-group">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" placeholder="someone@something.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Message: </label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <div>
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+
+            <div style="margin-top: 20px;">
+                <p>&larr; <a href="login.html">Back to Login</a></p>
+            </div>
+        </div>
+    </div>
+
+ <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Home.html">Home</a>
+                <a href="About Us (4).html">About</a>
+                <a href="servicess (2).html">Books</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                 <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>

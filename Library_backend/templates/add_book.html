@@ -1,0 +1,9 @@
+<form method="POST">
+    {% csrf_token %}
+
+    <input name="title" placeholder="Title">
+    <input name="author" placeholder="Author">
+    <input name="category" placeholder="Category">
+
+    <button type="submit">Add Book</button>
+</form>
