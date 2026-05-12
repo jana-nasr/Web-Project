@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 import json
 
+from datetime import timedelta
 from .models import UserProfile, BorrowedBook
 from books.models import Book
 
@@ -43,9 +44,12 @@ def api_user_profile(request):
     borrowed_list = []
 
     for b in borrowed:
-        is_overdue = b.due_date < today
-        days_left  = (b.due_date - today).days
+        is_overdue = b.due_date and b.due_date < today
 
+        days_left = (
+            (b.due_date - today).days
+            if b.due_date else 0
+        )
         if is_overdue:
             overdue_count += 1
         elif days_left <= 7:
@@ -67,7 +71,7 @@ def api_user_profile(request):
         'email'         : user.email,
         'phone'         : profile.phone or '',
         'address'       : profile.address or '',
-        'is_admin'      : user.is_staff,
+        'is_admin': profile.is_admin,
         'borrowed_books': borrowed_list,
         'overdue_count' : overdue_count,
         'due_this_week' : due_this_week,
@@ -168,7 +172,11 @@ def api_borrow_book(request, book_id):
         if already:
             return JsonResponse({'success': False, 'message': 'You already borrowed this book'})
 
-        BorrowedBook.objects.create(user=user, book=book)
+        BorrowedBook.objects.create(
+            user=user,
+            book=book,
+            due_date=timezone.now().date() + timedelta(days=7)
+        )
         book.available = False
         book.save()
 
@@ -187,7 +195,7 @@ def api_admin_dashboard(request):
     email = request.GET.get('email', '').strip().lower()
 
     user = get_user_by_email(email)
-    if not user or not user.is_staff:
+    if not user or not user.profile.is_admin:
         return JsonResponse({'success': False, 'message': 'Admin access required'}, status=403)
 
     profile, _ = UserProfile.objects.get_or_create(user=user)
