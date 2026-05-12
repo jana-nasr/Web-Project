@@ -1,9 +1,11 @@
-
+/*
 let favorites = [];
 let currentBook = "";
 let currentCard = null;
 let selectedCard = null;
 let currentBookId = null;
+*/
+let selectedBookId = null;
 
 function viewDetails(btn) {
 
@@ -12,7 +14,6 @@ function viewDetails(btn) {
     let category = btn.dataset.category;
     let description = btn.dataset.desc;
     let available = btn.dataset.available === "True";
-    let count = btn.dataset.count;
 
     document.getElementById("modal-title").innerText = title;
     document.getElementById("modal-author").innerText = "Author: " + author;
@@ -30,8 +31,6 @@ function viewDetails(btn) {
         text.innerText = "Not Available";
     }
 
-    document.getElementById("borrow-count").innerText =
-        "Borrowed: " + count + " times";
 
     document.getElementById("bookModal").style.display = "block";
 }
@@ -64,10 +63,10 @@ function borrowBook(id, btn) {
     .then(res => {
         if (res.ok) {
 
-            // popup
+        
             showPopup("Book Borrowed Successfully");
 
-            // تغيير شكل الزرار
+           
             btn.innerText = "Borrowed";
             btn.disabled = true;
             btn.classList.add("borrowed");

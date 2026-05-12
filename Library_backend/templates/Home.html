@@ -83,36 +83,37 @@
                     <h3>{{ book.title }}</h3>
                     <p>Author : {{ book.author }}</p>
                     <p>Category : {{ book.category }}</p>
-                  <div class="buttons">
-                    <button 
-                    data-title="{{ book.title }}"
-                    data-author="{{ book.author }}"
-                    data-category="{{ book.category }}"
-                    data-desc="{{ book.description }}"
-                    data-available="{{ book.available }}"
-                    data-count="{{ book.borrow_count }}"
-                    onclick="viewDetails(this)">
-                    View details
-                </button>
+                    <div class="buttons">
+                        <button data-title="{{ book.title }}" data-author="{{ book.author }}"
+                            data-category="{{ book.category }}" data-desc="{{ book.description }}"
+                            data-available="{{ book.available }}" data-count="{{ book.borrow_count }}"
+                            onclick="viewDetails(this)">
+                            View details
+                        </button>
 
-                <button onclick="borrowBook('{{ book.id }}', this)">
-                    Borrow
-                </button>
+                        <button
+                        onclick="borrowBook('{{ book.id }}', this)"
+                    
+                        {% if not book.available %}
+                            disabled class="borrowed"
+                        {% endif %}
+                    >
+                    
+                        {% if book.available %}
+                            Borrow
+                        {% else %}
+                            Borrowed
+                        {% endif %}
+                    
+                    </button>
                     </div>
 
                 </div>
 
-            {% endfor %}
+                {% endfor %}
             </div>
 
-
-
-
-
-
-
-
-            </div>
+           </div>
         </section>
         <hr>
     </main>
@@ -132,7 +133,6 @@
                 <span id="status-text"></span>
             </p>
 
-            <p id="borrow-count"></p>
 
         </div>
     </div>
