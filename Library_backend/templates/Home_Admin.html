@@ -92,10 +92,10 @@
             
                         <button onclick="openEditModal(
                             '{{ book.id }}',
-                            '{{ book.title }}',
-                            '{{ book.author }}',
-                            '{{ book.category }}',
-                            '{{ book.description }}'
+                            '{{ book.title|addslashes }}',
+                            '{{ book.author|addslashes }}',
+                            '{{ book.category|addslashes }}',
+                            '{{ book.description|addslashes }}'
                         )">
                             Edit
                         </button>

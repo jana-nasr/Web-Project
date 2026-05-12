@@ -90,7 +90,8 @@ function getCookie(name) {
 }
 
 
-function openEditModal(id, title, author, category, description) {
+function openEditModal(btn) {
+
 
     document.getElementById("edit-title").value = title;
     document.getElementById("edit-author").value = author;
