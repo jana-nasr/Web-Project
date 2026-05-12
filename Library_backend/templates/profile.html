@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <title>My Dashboard</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
       <nav class="navbar">
             <ul>
                 <li><img src="logo.png" alt="Logo" class="logo" width="100" height="100"></li>
-                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="{% url 'profile' %}" class="active">Profile</a></li>
                 <li><a href="Home.html" class="active">Home</a></li>
                 <li><a href="About Us (4).html" class="active">About Us</a></li>
                 <li><a href="servicess (2).html" class="active">Books</a></li>
@@ -84,8 +85,8 @@
                 </div>
             </div>
         </div>
-        <img src="profile-background.png" opacity="0.5" alt="Background Image" class="background-image">
-        <img src="profile-background2.png" opacity="0.5" alt="Background Image" class="background-image2">
+        <img src="{% static 'images/profile-background.png' %}" opacity="0.5" alt="Background Image" class="background-image">
+        <img src="{% static 'images/profile-background2.png' %}" opacity="0.5" alt="Background Image" class="background-image2">
 
     </main>
 
@@ -123,6 +124,6 @@
     </footer>
     <script src="data.js"></script>
     <script src="auth.js"></script>
-    <script src="profile.js"></script>
+    <script src="{% static 'js/profile.js' %}"></script>
     <script src="borrowed.js"></script>
 </body>

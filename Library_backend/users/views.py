@@ -311,3 +311,36 @@ def api_register(request):
 
     except Exception as e:
         return JsonResponse({'success': False, 'message': str(e)}, status=500)
+
+from django.shortcuts import render
+
+
+def home(request):
+    return render(request, 'home.html')
+
+
+def profile(request):
+    return render(request, 'profile.html')
+
+
+def login_page(request):
+    return render(request, 'login.html')
+
+
+def signup_page(request):
+    return render(request, 'signup.html')
+
+
+def admin_profile(request):
+    return render(request, 'admin_profile.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def books(request):
+    return render(request, 'servicess (2).html')
+
+
+def borrowed(request):
+    return render(request, 'borrowed.html')
