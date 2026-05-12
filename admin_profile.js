@@ -1,5 +1,3 @@
-// admin_profile.js - Complete working file with custom alerts
-
 // ===== CUSTOM ALERT FUNCTIONS (Same as profile.js) =====
 
 function showAlert(message, type) {
