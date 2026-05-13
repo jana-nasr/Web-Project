@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Books Page</title>
+    <link rel="stylesheet" href="{% static 'css/srevices_Admin.css' %}">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+            </li>
+
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'books' %}">Books</a></li>
+            <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
+
+             <li class="login"><a href="login.html">Login </a></li>
+                <li class="signup"><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search books...">
+</div>
+
+<section class="all">
+    <div class="books">
+
+        {% for book in books %}
+        <div class="card">
+
+            {% if book.image %}
+                <img src="{{ book.image.url }}">
+            {% endif %}
+
+            <h3>{{ book.title }}</h3>
+
+            <p>Author : {{ book.author }}</p>
+            <p>Category : {{ book.category }}</p>
+
+            <p class="status {% if book.available %}available{% else %}not-available{% endif %}">
+                {% if book.available %}Available{% else %}Borrowed{% endif %}
+            </p>
+
+            <!-- ✏️ EDIT (Backend Link) -->
+           <button type="button" onclick="window.location.href='{% url 'edit_book' book.id %}'" class="edit-btn">
+    Edit
+</button>
+
+            <!-- 🗑️ DELETE (REAL BACKEND FORM) -->
+            <form method="POST" action="{% url 'delete_book' book.id %}">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+<script src="{% static 'js/services_Admin.js' %}"></script>
+
+</body>
+</html>
