@@ -1,17 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-
-class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    category = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='books/', blank=True, null=True)
-    available = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.title
+from books.models import Book  # بناخد Book من books app
 
 
 class UserProfile(models.Model):

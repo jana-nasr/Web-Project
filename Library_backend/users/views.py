@@ -96,21 +96,12 @@ def contact_page(request):
 
 @require_GET
 def api_user_profile(request):
-    email = request.GET.get('email', '').strip().lower()
-
-    if not email:
+    if not request.user.is_authenticated:
         return JsonResponse(
-            {'success': False, 'message': 'Email required'},
-            status=400
+            {'success': False, 'message': 'Not logged in'},
+            status=401
         )
-
-    user = get_user_by_email(email)
-
-    if not user:
-        return JsonResponse(
-            {'success': False, 'message': 'User not found'},
-            status=404
-        )
+    user = request.user
 
     profile, _ = UserProfile.objects.get_or_create(user=user)
 
@@ -170,27 +161,16 @@ def api_user_profile(request):
 @csrf_exempt
 @require_POST
 def api_update_profile(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'success': False, 'message': 'Not logged in'}, status=401)
+
     try:
         data = json.loads(request.body)
 
-        email = data.get('email', '').strip().lower()
         phone = data.get('phone', None)
         address = data.get('address', None)
 
-        if not email:
-            return JsonResponse(
-                {'success': False, 'message': 'Email required'},
-                status=400
-            )
-
-        user = get_user_by_email(email)
-
-        if not user:
-            return JsonResponse(
-                {'success': False, 'message': 'User not found'},
-                status=404
-            )
-
+        user = request.user
         profile, _ = UserProfile.objects.get_or_create(user=user)
 
         if phone is not None:
@@ -221,17 +201,11 @@ def api_update_profile(request):
 @csrf_exempt
 @require_POST
 def api_return_book(request, borrow_id):
+    if not request.user.is_authenticated:
+        return JsonResponse({'success': False, 'message': 'Not logged in'}, status=401)
+
     try:
-        data = json.loads(request.body)
-        email = data.get('email', '').strip().lower()
-
-        user = get_user_by_email(email)
-
-        if not user:
-            return JsonResponse(
-                {'success': False, 'message': 'User not found'},
-                status=404
-            )
+        user = request.user
 
         borrow = get_object_or_404(
             BorrowedBook,

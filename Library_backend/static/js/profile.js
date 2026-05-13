@@ -84,31 +84,21 @@ var currentUserEmail = null;
 var currentUserData  = null;
 
 window.onload = async function() {
-    var response = await fetch("/api/profile/");  // Django يعرف مين logged in من الـ session
-var data = await response.json();
-
-if (!data.success) {
-    await showAlert("Please login first", "error");
-    window.location.href = window.LOGIN_URL || "/login/";
-    return;
-}
-
-currentUserEmail = data.email;
-
-    // Fetch profile data from Django
     try {
-        var response = await fetch("/api/profile/?email=" + encodeURIComponent(currentUserEmail));
+        // بنجيب البيانات من Django session - مش محتاجين email في الـ URL
+        var response = await fetch("/api/profile/");
         var data     = await response.json();
 
         if (!data.success) {
-            await showAlert(data.message || "User not found", "error");
+            await showAlert("Please login first", "error");
             window.location.href = window.LOGIN_URL || "/login/";
             return;
         }
 
-        currentUserData = data;
+        currentUserEmail = data.email;
+        currentUserData  = data;
 
-        // Redirect admin
+        // لو admin نروح admin_profile
         if (data.is_admin) {
             window.location.href = window.ADMIN_PROFILE_URL || "/admin-profile/";
             return;
@@ -212,10 +202,9 @@ function setupAddressButtons() {
     }
 }
 
-// ===== UPDATE PROFILE (phone / address) =====
+// ===== UPDATE PROFILE =====
 
 async function updateProfile(fields) {
-    fields.email = currentUserEmail;
     try {
         var response = await fetch("/api/profile/update/", {
             method : "POST",
@@ -241,7 +230,7 @@ async function returnBook(borrowId, bookTitle) {
             var response = await fetch("/api/return/" + borrowId + "/", {
                 method : "POST",
                 headers: { "Content-Type": "application/json" },
-                body   : JSON.stringify({ email: currentUserEmail })
+                body   : JSON.stringify({})
             });
             var data = await response.json();
             if (data.success) {
