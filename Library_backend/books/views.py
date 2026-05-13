@@ -8,6 +8,10 @@ def home(request):
     books = Book.objects.all()
     return render(request, 'Home.html', {'books': books})
 
+def home_admin(request):
+    books=Book.objects.all()
+    return render(request,'Home_Admin.html',{'books':books})    
+
 
 def books_page(request):
     books = Book.objects.all()
@@ -86,11 +90,11 @@ def admin_books(request):
     books = Book.objects.all()
     return render(request, "services_Admin.html", {"books": books})
 
-
 def edit_book(request, id):
-    book = get_object_or_404(Book, id=id)
+    if not request.user.is_staff:
+        return redirect('home')
 
-    next_page = request.GET.get('next')
+    book = get_object_or_404(Book, id=id)
 
     if request.method == "POST":
         book.title = request.POST['title']
@@ -99,12 +103,7 @@ def edit_book(request, id):
         book.description = request.POST['description']
         book.save()
 
-        if next_page == "admin":
-            return redirect('admin_books')
-        else:
-            return redirect('home')
-
-    return render(request, "details.html", {"book": book})
+        return redirect('home_admin')
 
 def delete_book(request, id):
     book = get_object_or_404(Book, id=id)
