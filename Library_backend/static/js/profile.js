@@ -1,5 +1,3 @@
-
-
 function showAlert(message, type) {
     return new Promise(function(resolve) {
         var existingOverlay = document.querySelector(".custom-alert-overlay");
@@ -82,15 +80,20 @@ function showPrompt(message, defaultValue) {
 
 // ===== MAIN =====
 
-var currentUserEmail = localStorage.getItem("userEmail");
+var currentUserEmail = null;
 var currentUserData  = null;
 
 window.onload = async function() {
-    if (!currentUserEmail) {
-        await showAlert("Please login first", "error");
-        window.location.href = "login.html";
-        return;
-    }
+    var response = await fetch("/api/profile/");  // Django يعرف مين logged in من الـ session
+var data = await response.json();
+
+if (!data.success) {
+    await showAlert("Please login first", "error");
+    window.location.href = window.LOGIN_URL || "/login/";
+    return;
+}
+
+currentUserEmail = data.email;
 
     // Fetch profile data from Django
     try {
@@ -99,7 +102,7 @@ window.onload = async function() {
 
         if (!data.success) {
             await showAlert(data.message || "User not found", "error");
-            window.location.href = "login.html";
+            window.location.href = window.LOGIN_URL || "/login/";
             return;
         }
 
@@ -107,7 +110,7 @@ window.onload = async function() {
 
         // Redirect admin
         if (data.is_admin) {
-            window.location.href = "admin_profile.html";
+            window.location.href = window.ADMIN_PROFILE_URL || "/admin-profile/";
             return;
         }
 

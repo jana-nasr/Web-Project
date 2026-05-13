@@ -18,7 +18,7 @@
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 <li><a href="{% url 'books' %}">Books</a></li>
                 <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
-                <li class="login"><a href="login.html">Login </a></li>
+                <li class="login"><a href="{% url 'login' %}">Login</a></li>
                 <li class="signup"><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
@@ -124,6 +124,10 @@
     </footer>
     <script src="data.js"></script>
     <script src="auth.js"></script>
+    <script>
+        window.LOGIN_URL        = "{% url 'login' %}";
+        window.ADMIN_PROFILE_URL = "{% url 'admin_profile' %}";
+    </script>
     <script src="{% static 'js/profile.js' %}"></script>
     <script src="borrowed.js"></script>
 </body>
