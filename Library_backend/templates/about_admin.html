@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About page</title>
+    <link rel="stylesheet" href="{% static 'css/About Us (4).css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul>
+            <li>
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+            </li>
+
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about_admin' %}">About Us</a></li>
+            <li><a href="{% url 'books' %}">Books</a></li>
+            <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
+            
+            <li class="login"><a href="{% url 'login' %}">Login</a></li>
+            <li class="signup"><a href="{% url 'signup' %}">Sign Up</a></li>
+        </ul>
+    </nav>
+   
+
+    <!-- HEADER -->
+    <section class="header">
+        <h1>About Us</h1>
+        <p>
+            Welcome to our library! Our platform is designed to make finding and borrowing books simple and enjoyable
+            for everyone.
+        </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <div class="text">
+            <h2>About our library</h2>
+            <p>
+                Our library offers a wide and diverse collection of books from different genres such as novels,
+                educational books, science, history, and more.
+                We aim to make reading easy, organized, and accessible for everyone.
+            </p>
+        </div>
+
+        <div class="image">
+            <img src="{% static 'images/a_creative_history.jpeg' %}">
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="value">
+        <div class="mission">
+            <h2>Our Values</h2>
+            <p>
+                Our mission is to encourage reading and make books more accessible to everyone.
+                We believe reading opens the door to knowledge and creativity.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>Your gateway to a world of knowledge.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'books' %}">Books</a>
+                <a href="{% url 'borrowed_books' %}">Borrowed Books</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Programming</a>
+                <a href="#">Novels</a>
+                <a href="#">Science</a>
+                <a href="#">History</a>
+            </div>
+
+        </div>
+
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+
+</html>
