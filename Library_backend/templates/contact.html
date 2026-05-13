@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><img src="{% static 'images/Logo.png' %}" alt="Logo" class="logo" width="100" height="100"></li>
+            <li><a href="{% url 'profile' %}" class="active">Profile</a></li>
+            <li><a href="../../Home.html" class="active">Home</a></li>
+            <li><a href="../../About Us (4).html" class="active">About Us</a></li>
+            <li><a href="../../servicess (2).html" class="active">Books</a></li>
+            <li><a href="../../borrowed.html" class="active">Borrowed Books</a></li>
+            <li class="login"><a href="{% url 'login' %}">Login</a></li>
+            <li class="signup"><a href="{% url 'signup' %}">Sign Up</a></li>
+        </ul>
+    </nav>
+    <div class="contact-wrapper">
+        <div class="contactForum">
+            <h1>Contact Us</h1>
+            <p class="subtitle">If you are having trouble logging in or have any questions, please send us a message below.</p>
+            <form action="#">
+                <div class="input-group">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" placeholder="someone@something.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message: </label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+            <div style="margin-top: 20px;">
+                <p>&larr; <a href="{% url 'login' %}">Back to Login</a></p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>The Readers</h3>
+                <p>
+                    Your gateway to a world of knowledge.<br>
+                    Discover ,borrow and explore thousands of books online.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="/Home.html">Home</a>
+                <a href="/About Us (4).html">About</a>
+                <a href="/servicess (2).html">Books</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <a href="#">Fantasy</a>
+                <a href="#">Novels</a>
+                <a href="#">Classic</a>
+                <a href="#">History</a>
+                <a href="#">Biography</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2026 Online Library. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>

@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin-profile/', views.admin_profile_page, name='admin_profile'),
     path('login/', views.login_page, name='login'),
     path('signup/', views.signup_page, name='signup'),
+    path('contact/', views.contact_page, name='contact'),
 
     # APIs
     path('api/profile/', views.api_user_profile, name='api_user_profile'),

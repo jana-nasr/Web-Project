@@ -1,14 +1,17 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST, require_GET
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from datetime import timedelta
 import json
 
 from .models import UserProfile, BorrowedBook
 from books.models import Book
+
+ADMIN_EMAIL = 'admin@onlinelibrary.com'
 
 
 # ─────────────────────────────────────────
@@ -28,19 +31,62 @@ def get_user_by_email(email):
 # ─────────────────────────────────────────
 
 def profile_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     return render(request, 'profile.html')
 
 
 def admin_profile_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    if request.user.email.strip().lower() != ADMIN_EMAIL or not request.user.is_staff:
+        return redirect('login')
     return render(request, 'admin_profile.html')
 
 
 def login_page(request):
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip().lower()
+        password = request.POST.get('password', '')
+
+        if not email or not password:
+            return render(request, 'login.html', {
+                'error': 'Email and password are required.'
+            })
+
+        user_obj = get_user_by_email(email)
+        if not user_obj:
+            return render(request, 'login.html', {
+                'error': 'Invalid email or password.'
+            })
+
+        user = authenticate(request, username=user_obj.username, password=password)
+        if user is None:
+            return render(request, 'login.html', {
+                'error': 'Invalid email or password.'
+            })
+
+        if email == ADMIN_EMAIL and not user.is_staff:
+            return render(request, 'login.html', {
+                'error': 'Only the admin account can log in here.'
+            })
+
+        auth_login(request, user)
+
+        if email == ADMIN_EMAIL and user.is_staff:
+            return redirect('admin_profile')
+
+        return redirect('profile')
+
     return render(request, 'login.html')
 
 
 def signup_page(request):
     return render(request, 'signup.html')
+
+
+def contact_page(request):
+    return render(request, 'contact.html')
 
 
 # ─────────────────────────────────────────
@@ -418,7 +464,8 @@ def api_register(request):
         email = data.get('email', '').strip().lower()
         password = data.get('password', '')
         phone = data.get('phone', '')
-        is_admin = data.get('is_admin', False)
+        raw_admin = data.get('is_admin', False)
+        is_admin = str(raw_admin).lower() in ['1', 'true', 'yes', 'on']
 
         if not username or not email or not password:
             return JsonResponse({
@@ -437,6 +484,14 @@ def api_register(request):
                 'success': False,
                 'message': 'Email already registered'
             })
+
+        if email == ADMIN_EMAIL:
+            is_admin = True
+        elif is_admin:
+            return JsonResponse({
+                'success': False,
+                'message': 'Only admin@onlinelibrary.com can register as admin.'
+            }, status=403)
 
         user = User.objects.create_user(
             username=username,
