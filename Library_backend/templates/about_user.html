@@ -23,8 +23,8 @@
             <li><a href="{% url 'books' %}">Books</a></li>
             <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
 
-             <li class="login"><a href="login.html">Login </a></li>
-                <li class="signup"><a href="signup.html">Sign Up</a></li>
+            <li class="login"><a href="{% url 'login' %}">Login </a></li>
+            <li class="signup"><a href="{% url 'signup' %}">Sign Up</a></li>
         </ul>
     </nav>
 
@@ -78,7 +78,7 @@
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'about' %}">About</a>
                 <a href="{% url 'books' %}">Books</a>
-                <a href="{% url 'borrowed_books' %}">Borrowed Books</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
             </div>
 
             <div class="footer-col">

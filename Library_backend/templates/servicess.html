@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Books Page</title>
 
@@ -10,119 +11,114 @@
 
 <body>
 
-<!-- 🔥 NAVBAR -->
-<header>
+    <!-- 🔥 NAVBAR -->
+    <header>
 
-      <nav class="navbar">
-        <ul>
-            <li>
-                <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-            </li>
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+                </li>
 
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'books' %}">Books</a></li>
-            <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'books' %}">Books</a></li>
+                <li><a href="{% url 'borrowed_books' %}">Borrowed Books</a></li>
 
-             <li class="login"><a href="login.html">Login </a></li>
-                <li class="signup"><a href="signup.html">Sign Up</a></li>
-        </ul>
-    </nav>
+                <li class="login"><a href="{% url 'login' %}">Login </a></li>
+                <li class="signup"><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
 
     </header>
 
 
-<!-- 🔍 SEARCH -->
-<div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search books...">
-</div>
+    <!-- 🔍 SEARCH -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search books...">
+    </div>
 
 
-<!-- 🔘 FILTERS -->
-<div class="filters">
-    <button onclick="filterBooks('all')">All</button>
-    <button onclick="filterBooks('Fantasy')">Fantasy</button>
-    <button onclick="filterBooks('Romance')">Romance</button>
-    <button onclick="filterBooks('Self Development')">Self Development</button>
-    <button onclick="filterBooks('Fiction')">Fiction</button>
-    <button onclick="filterBooks('Drama')">Drama</button>
-    <button onclick="filterBooks('programing')">programing</button>
+    <!-- 🔘 FILTERS -->
+    <div class="filters">
+        <button onclick="filterBooks('all')">All</button>
+        <button onclick="filterBooks('Fantasy')">Fantasy</button>
+        <button onclick="filterBooks('Romance')">Romance</button>
+        <button onclick="filterBooks('Self Development')">Self Development</button>
+        <button onclick="filterBooks('Fiction')">Fiction</button>
+        <button onclick="filterBooks('Drama')">Drama</button>
+        <button onclick="filterBooks('programing')">programing</button>
 
-</div>
+    </div>
 
 
-<!-- 📚 BOOKS -->
-<div class="books" id="booksContainer">
+    <!-- 📚 BOOKS -->
+    <div class="books" id="booksContainer">
 
-    {% for book in books %}
-    <div class="card"
-        data-status="{% if book.available %}available{% else %}borrowed{% endif %}"
-        data-category="{{ book.category|lower }}"
-        data-pages="{{ book.pages }}"
-        data-language="{{ book.language }}"
-        data-desc="{{ book.description }}"
-        data-borrowed="{{ book.borrowed_count }}">
+        {% for book in books %}
+        <div class="card" data-status="{% if book.available %}available{% else %}borrowed{% endif %}"
+            data-category="{{ book.category|lower }}" data-pages="{{ book.pages }}" data-language="{{ book.language }}"
+            data-desc="{{ book.description }}" data-borrowed="{{ book.borrowed_count }}">
 
-        {% if book.image %}
+            {% if book.image %}
             <img src="{{ book.image.url }}">
-        {% else %}
+            {% else %}
             <img src="{{ book.cover_image_url }}">
-        {% endif %}
+            {% endif %}
 
-        <h3>{{ book.title }}</h3>
+            <h3>{{ book.title }}</h3>
 
-        <p>Author: {{ book.author }}</p>
-        <p>Category: {{ book.category }}</p>
+            <p>Author: {{ book.author }}</p>
+            <p>Category: {{ book.category }}</p>
 
-        <!-- status -->
-        <p class="status {% if book.available %}available{% else %}not-available{% endif %}">
-    {% if book.available %}
-        Available
-    {% else %}
-        Borrowed
-    {% endif %}
-</p>
+            <!-- status -->
+            <p class="status {% if book.available %}available{% else %}not-available{% endif %}">
+                {% if book.available %}
+                Available
+                {% else %}
+                Borrowed
+                {% endif %}
+            </p>
 
-        <!-- 👁 VIEW -->
-        <button class="view-btn">View</button>
+            <!-- 👁 VIEW -->
+            <button class="view-btn">View</button>
 
-        <!-- 📌 BORROW (REAL DJANGO LINK) -->
-       {% if book.available %}
-<button class="borrow-btn available"
-        onclick="window.location.href='{% url 'borrow_book' book.id %}'">
-    Borrow
-</button>
-{% else %}
-<button class="borrow-btn not-available" disabled>
-    Borrowed
-</button>
-{% endif %}
+            <!-- 📌 BORROW (REAL DJANGO LINK) -->
+            {% if book.available %}
+            <button class="borrow-btn available" onclick="window.location.href='{% url 'borrow_book' book.id %}'">
+                Borrow
+            </button>
+            {% else %}
+            <button class="borrow-btn not-available" disabled>
+                Borrowed
+            </button>
+            {% endif %}
 
-    </div>
-    {% endfor %}
-
-</div>
-
-
-<!-- 🪟 MODAL -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-
-        <span id="closeBtn">&times;</span>
-
-        <h2 id="modalTitle"></h2>
-        <p id="modalAuthor"></p>
-        <p id="modalCategory"></p>
-        <p id="modalDesc"></p>
-        <p id="modalPages"></p>
-        <p id="modalLang"></p>
-        <p id="modalStatus"></p>
-        <p id="modalborrow"></p>
+        </div>
+        {% endfor %}
 
     </div>
-</div>
-<footer>
+
+
+    <!-- 🪟 MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+
+            <span id="closeBtn">&times;</span>
+
+            <h2 id="modalTitle"></h2>
+            <p id="modalAuthor"></p>
+            <p id="modalCategory"></p>
+            <p id="modalDesc"></p>
+            <p id="modalPages"></p>
+            <p id="modalLang"></p>
+            <p id="modalStatus"></p>
+            <p id="modalborrow"></p>
+
+        </div>
+    </div>
+    <footer>
         <div class="footer-container">
 
             <div class="footer-col">
@@ -135,10 +131,10 @@
 
             <div class="footer-col">
                 <h3>Quick Links</h3>
-                <a href="Home.html">Home</a>
-                <a href="About Us (4).html">About</a>
-                <a href="servicess (2).html">Books</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'books' %}">Books</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
             </div>
 
             <div class="footer-col">
@@ -155,8 +151,9 @@
         </p>
     </footer>
 
-<!-- JS -->
-<script src="{% static 'js/servicess.js' %}"></script>
+    <!-- JS -->
+    <script src="{% static 'js/servicess.js' %}"></script>
 
 </body>
+
 </html>

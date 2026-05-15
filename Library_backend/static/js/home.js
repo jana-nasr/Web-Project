@@ -1,10 +1,4 @@
-/*
-let favorites = [];
-let currentBook = "";
-let currentCard = null;
-let selectedCard = null;
-let currentBookId = null;
-*/
+
 let selectedBookId = null;
 
 function viewDetails(btn) {
@@ -90,8 +84,7 @@ function getCookie(name) {
 }
 
 
-function openEditModal(btn) {
-
+function openEditModal(id, title, author, category, description) {
 
     document.getElementById("edit-title").value = title;
     document.getElementById("edit-author").value = author;

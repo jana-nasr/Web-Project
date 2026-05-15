@@ -99,6 +99,8 @@ def edit_book(request, id):
         book.save()
         return redirect('home_admin')
 
+    return render(request, 'Home_Admin.html')
+
 def delete_book(request, id):
     book = get_object_or_404(Book, id=id)
     next_page = request.GET.get('next')
