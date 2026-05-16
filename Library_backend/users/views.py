@@ -59,7 +59,7 @@ def login_page(request):
 
         auth_login(request, user)
 
-        # أي staff يروح admin_profile
+       
         if user.is_staff:
             return redirect('admin_profile')
 
@@ -70,6 +70,27 @@ def login_page(request):
 
 def signup_page(request):
     return render(request, 'signup.html')
+
+
+def forgot_password_page(request):
+    message = ''
+    error = ''
+
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip().lower()
+        if not email:
+            error = 'Please enter your email address.'
+        else:
+            user_obj = get_user_by_email(email)
+            if user_obj:
+                message = f'A password reset link has been sent to {email}.'
+            else:
+                error = 'No account was found with that email address.'
+
+    return render(request, 'forgot_password.html', {
+        'message': message,
+        'error': error,
+    })
 
 
 def contact_page(request):

@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin-profile/', views.admin_profile_page, name='admin_profile'),
     path('login/', views.login_page, name='login'),
     path('signup/', views.signup_page, name='signup'),
+    path('forgot-password/', views.forgot_password_page, name='forgot_password'),
     path('contact/', views.contact_page, name='contact'),
 
     # APIs
