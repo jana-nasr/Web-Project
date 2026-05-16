@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/books/edit/<int:id>/', views.edit_book, name='admin_edit_book'),
     path('services-admin/', views.admin_books, name='services_admin'),
     path('details/', views.details_page, name='details'),
+    path('edit_book_popup/<int:id>/', views.edit_book_popup, name='edit_book_popup'),
 
     # ---------- API ----------
     path('api/recent-books/', views.get_recent_books, name='recent_books_api'),

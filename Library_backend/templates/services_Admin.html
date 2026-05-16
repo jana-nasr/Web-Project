@@ -46,12 +46,18 @@
                 {% if book.available %}Available{% else %}Borrowed{% endif %}
             </p>
 
-            <!-- ✏️ EDIT (Backend Link) -->
-           <button type="button" onclick="window.location.href='{% url 'edit_book' book.id %}'" class="edit-btn">
-    Edit
+           <button class="edit-btn"
+onclick="openEditPopup(
+'{{ book.id }}',
+'{{ book.title|escapejs }}',
+'{{ book.author|escapejs }}',
+'{{ book.category|escapejs }}',
+'{{ book.description|escapejs }}'
+)">
+Edit
 </button>
 
-            <!-- 🗑️ DELETE (REAL BACKEND FORM) -->
+            
             <form method="POST" action="{% url 'delete_book' book.id %}">
                 {% csrf_token %}
                 <button type="submit" class="delete-btn">Delete</button>
@@ -59,6 +65,28 @@
 
         </div>
         {% endfor %}
+   <div id="popup" class="popup-overlay" style="display:none;">
+    <div class="popup-box">
+
+        <form method="POST" id="editForm">
+            {% csrf_token %}
+
+            <input type="hidden" id="bookId">
+
+            <input type="text" name="title" id="title">
+            <input type="text" name="author" id="author">
+            <input type="text" name="category" id="category">
+            <textarea name="description" id="description"></textarea>
+
+           <div class="popup-actions">
+    <button type="submit" class="save-btn">Save</button>
+    <button type="button" class="cancel-btn" onclick="closePopup()">Cancel</button>
+</div>
+        </form>
+
+    </div>
+
+
 
     </div>
 </section>

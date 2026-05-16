@@ -138,3 +138,19 @@ def delete_book(request, id):
         return redirect('admin_books')
     else:
         return redirect('home')
+    
+    
+def edit_book_popup(request, id):
+    if not request.user.is_staff:
+        return redirect('home')
+
+    book = get_object_or_404(Book, id=id)
+
+    if request.method == "POST":
+        book.title = request.POST.get('title')
+        book.author = request.POST.get('author')
+        book.category = request.POST.get('category')
+        book.description = request.POST.get('description')
+        book.save()
+
+    return redirect('services_admin')
