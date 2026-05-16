@@ -15,9 +15,9 @@
                 <li><img src="{% static 'images/logo.png' %}" alt="Logo" class="logo" width="100" height="100"></li>
                 <li><a href="{% url 'admin_profile' %}" class="active">Profile</a></li>
                 <li><a href="{% url 'home_admin' %}" class="active">Home</a></li>
-                <li><a href="{% url 'about_admin' %}l" class="active">About Us</a></li>
+                <li><a href="{% url 'about_admin' %}" class="active">About Us</a></li>
                 <li><a href="{% url 'services_admin' %}" class="active">Books</a></li>
-                <li><a href="{% url 'add_book' %}" class="active">Add Book</a></li>
+                <li><a href="{% url 'details' %}" class="active">Add Book</a></li>
                 <li class="login"><a href="{% url 'login' %}">Login </a></li>
                 <li class="signup"><a href="{% url 'signup' %}">Sign Up</a></li>
             </ul>
@@ -128,6 +128,10 @@
             &copy; 2026 Online Library. All rights reserved.
         </p>
     </footer>
-    <script src="data.js"></script>
+    <script>
+        window.LOGIN_URL       = "{% url 'login' %}";
+        window.ADD_BOOK_URL = "{% url 'details' %}";
+        window.SERVICES_ADMIN_URL = "{% url 'services_admin' %}";
+    </script>
     <script src="{% static 'js/admin_profile.js' %}"></script>
 </body>

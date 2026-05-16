@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from datetime import timedelta
 from .models import Book
-from users.models import BorrowedBook  # من users مش من books
+from users.models import BorrowedBook
+import json
 
 
 def home(request):
@@ -63,6 +65,34 @@ def add_book(request):
         )
     return redirect('home')
 
+def details_page(request):
+    return render(request, 'details.html')
+
+@csrf_exempt
+def api_add_book(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            pages = data.get('pages')
+            publish_year = data.get('publishYear')
+            borrowed_count = data.get('borrowedCount')
+            Book.objects.create(
+                title=data.get('title', ''),
+                author=data.get('author', ''),
+                category=data.get('category', ''),
+                description=data.get('description', ''),
+                language=data.get('language', ''),
+                pages=int(pages) if pages and str(pages).isdigit() else None,
+                publish_year=int(publish_year) if publish_year and str(publish_year).isdigit() else None,
+                borrowed_count=int(borrowed_count) if borrowed_count and str(borrowed_count).isdigit() else 0,
+                cover_image_url=data.get('image', ''),
+                available=data.get('availability') != 'not_available',
+            )
+            return JsonResponse({'success': True, 'message': 'Book added successfully!'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid request'})
+
 @login_required
 def borrow_book(request, id):
     book = get_object_or_404(Book, id=id)
@@ -98,7 +128,6 @@ def edit_book(request, id):
         book.description = request.POST['description']
         book.save()
         return redirect('home_admin')
-
     return render(request, 'Home_Admin.html')
 
 def delete_book(request, id):
