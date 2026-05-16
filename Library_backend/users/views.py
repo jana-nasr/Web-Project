@@ -36,7 +36,7 @@ def profile_page(request):
 def admin_profile_page(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    if not request.user.is_staff:  # أي staff يدخل admin
+    if not request.user.is_staff:
         return redirect('profile')
     return render(request, 'admin_profile.html')
 
@@ -59,7 +59,6 @@ def login_page(request):
 
         auth_login(request, user)
 
-       
         if user.is_staff:
             return redirect('admin_profile')
 
@@ -141,7 +140,7 @@ def api_user_profile(request):
         'email': user.email,
         'phone': profile.phone or '',
         'address': profile.address or '',
-        'is_admin': user.is_staff,  # من is_staff مش من profile
+        'is_admin': profile.is_admin,  # من is_admin مش من profile
         'borrowed_books': borrowed_list,
         'overdue_count': overdue_count,
         'due_this_week': due_this_week,
@@ -330,6 +329,7 @@ def api_register(request):
         email = data.get('email', '').strip().lower()
         password = data.get('password', '')
         phone = data.get('phone', '')
+        is_admin = data.get('is_admin')
 
         if not username or not email or not password:
             return JsonResponse({'success': False, 'message': 'All fields required'})
@@ -340,15 +340,17 @@ def api_register(request):
         if User.objects.filter(email=email).exists():
             return JsonResponse({'success': False, 'message': 'Email already registered'})
 
+        is_admin_bool = str(is_admin) in ['1', 'true', 'True', 'yes', 'on']
+
         user = User.objects.create_user(
             username=username,
             email=email,
             password=password,
-            is_staff=False,
+            is_staff=is_admin_bool,
             is_superuser=False
         )
 
-        UserProfile.objects.create(user=user, phone=phone)
+        UserProfile.objects.create(user=user, phone=phone, is_admin=is_admin_bool)
 
         return JsonResponse({'success': True, 'message': 'User registered successfully!'})
 
