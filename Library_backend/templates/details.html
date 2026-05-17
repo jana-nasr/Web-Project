@@ -93,10 +93,10 @@
           </div>
 
           <div class="actions">
-            <button type="submit" class="btn btn-primary">Save Book</button>
-            <button type="reset" class="btn btn-secondary">Clear</button>
-            <a class="btn btn-secondary btn-link" href="servicess (2).html">Open Books Page</a>
-          </div>
+  <button type="submit" class="btn btn-primary">Save Book</button>
+  <button type="reset" class="btn btn-secondary">Clear</button>
+  <a class="btn btn-secondary btn-link" href="{% url 'services_admin' %}">Open Books Page</a>
+</div>
         </form>
       </div>
 
@@ -119,13 +119,13 @@
         </div>
 
         <div class="panel quick-card">
-          <h3>Quick Links</h3>
-          <div class="quick-list">
-            <a href="Home.html">Go to Home</a>
-            <a href="servicess (2).html">Go to Books</a>
-            <a href="/borrowed/">Go to Borrowed Books</a>
-          </div>
-        </div>
+  <h3>Quick Links</h3>
+  <div class="quick-list">
+    <a href="{% url 'home_admin' %}">Go to Home</a>
+    <a href="{% url 'services_admin' %}">Go to Books</a>
+    <a href="{% url 'borrowed_books' %}">Go to Borrowed Books</a>
+  </div>
+</div>
 
         <div class="panel added-card">
           <h3>Recently Added</h3>
