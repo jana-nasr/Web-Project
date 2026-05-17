@@ -1,8 +1,0 @@
-{
-  "build": {
-    "buildCommand": "python -m pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
-  },
-  "deploy": {
-    "startCommand": "python -m gunicorn library.wsgi"
-  }
-}
