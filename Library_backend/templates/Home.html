@@ -81,7 +81,11 @@
                 {% for book in books %}
                 <div class="book-card">
 
-                    <img src="{{ book.image.url }}" alt="{{ book.title }}" width="200" height="200">
+                    {% if book.image %}
+    <img src="{{ book.image.url }}" alt="{{ book.title }}" width="200" height="200">
+{% else %}
+    <img src="{% static 'images/a_creative_history.jpg' %}" alt="No image available" width="200" height="200">
+{% endif %}
 
                     <h3>{{ book.title }}</h3>
                     <p>Author : {{ book.author }}</p>
