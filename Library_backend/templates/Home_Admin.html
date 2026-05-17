@@ -80,7 +80,11 @@
             
                 <div class="book-card">
             
-                    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                    {% if book.image %}
+    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+{% else %}
+    <img src="{% static 'images/a_creative_history.jpg' %}" alt="No image available">
+{% endif %}
             
                     <h3>{{ book.title }}</h3>
             
