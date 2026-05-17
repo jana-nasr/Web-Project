@@ -11,7 +11,7 @@
 
 <body>
 
-    <!-- 🔥 NAVBAR -->
+   
     <header>
 
         <nav class="navbar">
@@ -34,13 +34,13 @@
     </header>
 
 
-    <!-- 🔍 SEARCH -->
+   
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search books...">
     </div>
 
 
-    <!-- 🔘 FILTERS -->
+  
     <div class="filters">
         <button onclick="filterBooks('all')">All</button>
         <button onclick="filterBooks('Fantasy')">Fantasy</button>
@@ -53,7 +53,7 @@
     </div>
 
 
-    <!-- 📚 BOOKS -->
+    
     <div class="books" id="booksContainer">
 
         {% for book in books %}
@@ -72,7 +72,7 @@
             <p>Author: {{ book.author }}</p>
             <p>Category: {{ book.category }}</p>
 
-            <!-- status -->
+            
             <p class="status {% if book.available %}available{% else %}not-available{% endif %}">
                 {% if book.available %}
                 Available
@@ -81,10 +81,10 @@
                 {% endif %}
             </p>
 
-            <!-- 👁 VIEW -->
+          
             <button class="view-btn">View</button>
 
-            <!-- 📌 BORROW (REAL DJANGO LINK) -->
+           
             {% if book.available %}
             <button class="borrow-btn available" onclick="window.location.href='{% url 'borrow_book' book.id %}'">
                 Borrow
@@ -101,7 +101,7 @@
     </div>
 
 
-    <!-- 🪟 MODAL -->
+    
     <div id="modal" class="modal">
         <div class="modal-content">
 
