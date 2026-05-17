@@ -350,7 +350,10 @@ def api_register(request):
             is_superuser=False
         )
 
-        UserProfile.objects.create(user=user, phone=phone, is_admin=is_admin_bool)
+        profile, created = UserProfile.objects.get_or_create(user=user)
+        profile.phone = phone
+        profile.is_admin = is_admin_bool
+        profile.save()
 
         return JsonResponse({'success': True, 'message': 'User registered successfully!'})
 
