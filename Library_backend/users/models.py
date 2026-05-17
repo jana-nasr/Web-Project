@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from books.models import Book  # بناخد Book من books app
+from books.models import Book 
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')  # one to one
     phone = models.CharField(max_length=20, blank=True, default='')
     address = models.TextField(blank=True, default='')
     is_admin = models.BooleanField(default=False)
@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 
 
 class BorrowedBook(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='borrowed_books')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='borrowed_books') # one to many
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='borrowings')
     borrow_date = models.DateField(auto_now_add=True)
     due_date = models.DateField(null=True, blank=True)

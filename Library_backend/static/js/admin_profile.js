@@ -92,10 +92,19 @@ window.onload = async function() {
                 row.insertCell(4).innerHTML = book.available
                     ? '<span class="badge available">Available</span>'
                     : '<span class="badge borrowed">Borrowed</span>';
-                row.insertCell(5).innerHTML = `
-                    <a href="/edit/${book.id}/"><button class="btn-edit">Edit</button></a>
-                    <a href="/delete/${book.id}/?next=admin"><button class="btn-delete">Delete</button></a>
-                `;
+              row.insertCell(5).innerHTML = `
+    <button class="btn-edit row-edit-btn">Edit</button>
+    <button class="btn-delete row-delete-btn">Delete</button>
+`;
+var actionCell = row.cells[5];
+
+actionCell.querySelector(".row-edit-btn").addEventListener("click", function () {
+    window.location.href = window.SERVICES_ADMIN_URL || "/services-admin/";
+});
+
+actionCell.querySelector(".row-delete-btn").addEventListener("click", function () {
+    window.location.href = window.SERVICES_ADMIN_URL || "/services-admin/";
+});
             });
         }
 
@@ -162,4 +171,19 @@ async function deleteUser(userId) {
             await showAlert("Connection error.", "error");
         }
     }
+}
+// ===== EDIT BOOK POPUP =====
+
+function openEditPopup(id, title, author, category, description) {
+    var popup = document.getElementById("popup");
+    popup.style.display = "flex";
+    document.getElementById("title").value = title;
+    document.getElementById("author").value = author;
+    document.getElementById("category").value = category;
+    document.getElementById("description").value = description;
+    document.getElementById("editForm").action = "/edit_book_popup/" + id + "/";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
 }
