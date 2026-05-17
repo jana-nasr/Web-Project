@@ -109,9 +109,15 @@ def borrow_book(request, id):
 
 def get_recent_books(request):
     books = Book.objects.all().order_by('-id')[:4]
-    data = [{"title": b.title, "author": b.author, "category": b.category,
-             "availability": "available" if b.available else "borrowed"} for b in books]
-    return JsonResponse({"books": data})
+    data = [{
+        "title": b.title, 
+        "author": b.author, 
+        "category": b.category,
+        "availability": "available" if b.available else "borrowed",
+        "publishYear": b.publish_year if b.publish_year else "Unknown" # Added to match JS
+    } for b in books]
+    
+    return JsonResponse({"success": True, "books": data}) # Added success flag
 
 def admin_books(request):
     books = Book.objects.all()
